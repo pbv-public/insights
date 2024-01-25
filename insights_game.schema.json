@@ -1,0 +1,34 @@
+{
+  "$id": "/insights/game",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Various insights about the game.",
+  "properties": {
+    "global_stats": {
+      "$ref": "/insights/global_stats",
+      "description": "Contains global, overarching statistics about the game.",
+      "title": "Global Stats"
+    },
+    "player_stats": {
+      "description": "each player's stats",
+      "items": {
+        "$ref": "/insights/player_stats",
+        "description": "Contains player-specific stats over the whole game.",
+        "title": "Player Stats"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    },
+    "version": {
+      "const": "0.0.1"
+    }
+  },
+  "required": [
+    "version",
+    "global_stats",
+    "player_stats"
+  ],
+  "title": "Game Insights",
+  "type": "object"
+}

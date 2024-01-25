@@ -1,0 +1,391 @@
+{
+  "$id": "/insights/player_stats",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Contains player-specific stats over the whole game.",
+  "properties": {
+    "average_serve_speed": {
+      "description": "The average speed of serves by the player (MPH).",
+      "type": "number"
+    },
+    "average_speed_shot": {
+      "description": "The average speed of shots by the player (MPH).",
+      "type": "number"
+    },
+    "ball_directions": {
+      "additionalProperties": false,
+      "description": "Categorizes ball directions across a player's shots (9 total).",
+      "properties": {
+        "down_the_line_left_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the left straight down the left sideline.",
+          "title": "Count"
+        },
+        "down_the_line_right_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the right straight down the right sideline.",
+          "title": "Count"
+        },
+        "down_the_middle_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the middle straight down the middle of the court.",
+          "title": "Count"
+        },
+        "left_cross_right_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the left side of the court that crosses over to the right side.",
+          "title": "Count"
+        },
+        "left_to_middle_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the left side of the court towards the middle.",
+          "title": "Count"
+        },
+        "mid_cross_left_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the middle of the court that crosses over to the left side.",
+          "title": "Count"
+        },
+        "mid_cross_right_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the middle of the court that crosses over to the right side.",
+          "title": "Count"
+        },
+        "right_cross_left_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the right side of the court that crosses over to the left side.",
+          "title": "Count"
+        },
+        "right_to_middle_count": {
+          "$ref": "/types/count",
+          "description": "A shot played from the right side of the court towards the middle.",
+          "title": "Count"
+        }
+      },
+      "required": [
+        "mid_cross_left_count",
+        "mid_cross_right_count",
+        "down_the_middle_count",
+        "left_to_middle_count",
+        "left_cross_right_count",
+        "down_the_line_left_count",
+        "right_to_middle_count",
+        "right_cross_left_count",
+        "down_the_line_right_count"
+      ],
+      "title": "Ball Directions",
+      "type": "object"
+    },
+    "court_coverage": {
+      "additionalProperties": false,
+      "description": "Categorizes various statistics about a players court coverage across all rallies.",
+      "properties": {
+        "average_x_coverage_percentage": {
+          "description": "The average amount of time each player spent on the left side of the court.",
+          "type": "number"
+        },
+        "heat_map_coordinates": {
+          "description": "An array of x/y pairs representing the player positions during any shot event where the player is on the court.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "description": "Scaled value representing the player's position across the width of the court.",
+                "maximum": 100,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "y": {
+                "description": "Scaled value representing the player's position across the length of the court.",
+                "maximum": 100,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "type": "object"
+          },
+          "title": "Heat Map Coordinates",
+          "type": "array"
+        },
+        "total_distance_covered": {
+          "description": "The number of feet each player travels between shots in all rallies combined.",
+          "type": "number"
+        }
+      },
+      "title": "Court Coverage",
+      "type": "object"
+    },
+    "final_shot_count": {
+      "$ref": "/types/count",
+      "description": "The total number of final shots by the player.",
+      "title": "Count"
+    },
+    "ground_stroke_count": {
+      "$ref": "/types/count",
+      "description": "The total number of ground strokes by the player.",
+      "title": "Count"
+    },
+    "left_side_percentage": {
+      "$ref": "/types/percentage",
+      "description": "The percentage of shots that went to the left side.",
+      "title": "Percentage"
+    },
+    "return_count": {
+      "$ref": "/types/count",
+      "description": "The total number of returns by the player.",
+      "title": "Count"
+    },
+    "serve_count": {
+      "$ref": "/types/count",
+      "description": "The total number of serves by the player.",
+      "title": "Count"
+    },
+    "shot_count": {
+      "$ref": "/types/count",
+      "description": "The total number of shots by the player.",
+      "title": "Count"
+    },
+    "shot_zones": {
+      "additionalProperties": false,
+      "properties": {
+        "returns": {
+          "additionalProperties": false,
+          "description": "how often returns land in various zones",
+          "properties": {
+            "deep": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed deep in the opponents court",
+              "title": "Percentage"
+            },
+            "kitchen": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed in the opponents kitchen",
+              "title": "Percentage"
+            },
+            "mid": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed in the transition zone in the opponents court",
+              "title": "Percentage"
+            },
+            "net": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
+              "title": "Percentage"
+            },
+            "out": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball hit outside the court (fault)",
+              "title": "Percentage"
+            },
+            "short": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed short in the opponents court",
+              "title": "Percentage"
+            }
+          },
+          "required": [
+            "deep",
+            "mid",
+            "short",
+            "kitchen",
+            "net",
+            "out"
+          ],
+          "title": "Zone Stats",
+          "type": "object"
+        },
+        "serves": {
+          "additionalProperties": false,
+          "description": "how often serves land in various zones",
+          "properties": {
+            "deep": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed deep in the opponents court",
+              "title": "Percentage"
+            },
+            "kitchen": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed in the opponents kitchen",
+              "title": "Percentage"
+            },
+            "mid": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed in the transition zone in the opponents court",
+              "title": "Percentage"
+            },
+            "net": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
+              "title": "Percentage"
+            },
+            "out": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball hit outside the court (fault)",
+              "title": "Percentage"
+            },
+            "short": {
+              "$ref": "/types/percentage",
+              "description": "how often the ball landed short in the opponents court",
+              "title": "Percentage"
+            }
+          },
+          "required": [
+            "deep",
+            "mid",
+            "short",
+            "kitchen",
+            "net",
+            "out"
+          ],
+          "title": "Zone Stats",
+          "type": "object"
+        }
+      },
+      "required": [
+        "serves",
+        "returns"
+      ],
+      "title": "Shot Zones",
+      "type": "object"
+    },
+    "team": {
+      "description": "The team to which the player belongs.",
+      "maximum": 1,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "third_shot_stats": {
+      "additionalProperties": false,
+      "properties": {
+        "drives": {
+          "additionalProperties": false,
+          "description": "third shot drives stats",
+          "properties": {
+            "avg_height_over_net": {
+              "description": "The average height over net across shots.",
+              "type": "number"
+            },
+            "avg_speed": {
+              "description": "The average speed across shots.",
+              "type": "number"
+            },
+            "count": {
+              "$ref": "/types/count",
+              "description": "The total number of shots by the player.",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "count",
+            "avg_speed",
+            "avg_height_over_net"
+          ],
+          "title": "Shot Stats",
+          "type": "object"
+        },
+        "drops": {
+          "additionalProperties": false,
+          "description": "third shot drops stats",
+          "properties": {
+            "avg_height_over_net": {
+              "description": "The average height over net across shots.",
+              "type": "number"
+            },
+            "avg_speed": {
+              "description": "The average speed across shots.",
+              "type": "number"
+            },
+            "count": {
+              "$ref": "/types/count",
+              "description": "The total number of shots by the player.",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "count",
+            "avg_speed",
+            "avg_height_over_net"
+          ],
+          "title": "Shot Stats",
+          "type": "object"
+        },
+        "lobs": {
+          "additionalProperties": false,
+          "description": "third shot lobs stats",
+          "properties": {
+            "avg_height_over_net": {
+              "description": "The average height over net across shots.",
+              "type": "number"
+            },
+            "avg_speed": {
+              "description": "The average speed across shots.",
+              "type": "number"
+            },
+            "count": {
+              "$ref": "/types/count",
+              "description": "The total number of shots by the player.",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "count",
+            "avg_speed",
+            "avg_height_over_net"
+          ],
+          "title": "Shot Stats",
+          "type": "object"
+        }
+      },
+      "required": [
+        "drives",
+        "drops",
+        "lobs"
+      ],
+      "title": "Third Shot Stats",
+      "type": "object"
+    },
+    "top_speed_serve": {
+      "description": "The top speed serve of the player (MPH).",
+      "type": "number"
+    },
+    "top_speed_shot": {
+      "description": "The top speed shot of the player (MPH).",
+      "type": "number"
+    },
+    "total_team_shot_percentage": {
+      "$ref": "/types/percentage",
+      "description": "The percentage of total team shots taken by the player.",
+      "title": "Percentage"
+    },
+    "volley_count": {
+      "$ref": "/types/count",
+      "description": "The total number of volleys by the player.",
+      "title": "Count"
+    }
+  },
+  "required": [
+    "team",
+    "shot_count",
+    "serve_count",
+    "return_count",
+    "third_shot_stats",
+    "final_shot_count",
+    "volley_count",
+    "ground_stroke_count",
+    "top_speed_shot",
+    "average_speed_shot",
+    "top_speed_serve",
+    "average_serve_speed",
+    "left_side_percentage",
+    "total_team_shot_percentage",
+    "shot_zones",
+    "ball_directions",
+    "court_coverage"
+  ],
+  "title": "Player Stats",
+  "type": "object"
+}

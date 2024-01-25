@@ -1,0 +1,9 @@
+{
+  "$id": "/types/percentage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A percentage value between 0 and 100.",
+  "maximum": 100,
+  "minimum": 0,
+  "title": "Percentage",
+  "type": "number"
+}
