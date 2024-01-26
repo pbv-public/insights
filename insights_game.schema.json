@@ -4,10 +4,10 @@
   "additionalProperties": false,
   "description": "Various insights about the game.",
   "properties": {
-    "global_stats": {
-      "$ref": "/insights/global_stats",
-      "description": "Contains global, overarching statistics about the game.",
-      "title": "Global Stats"
+    "game_stats": {
+      "$ref": "/insights/game_stats",
+      "description": "Contains statistics about the game as a whole.",
+      "title": "Game Stats"
     },
     "player_stats": {
       "description": "each player's stats",
@@ -20,14 +20,25 @@
       "minItems": 4,
       "type": "array"
     },
+    "rally_start_times": {
+      "description": "the time in the video each rally in this game started",
+      "items": {
+        "$ref": "/types/video_time",
+        "description": "when this rally started",
+        "title": "Video Milliseconds"
+      },
+      "title": "Rally Start Times",
+      "type": "array"
+    },
     "version": {
-      "const": "0.0.1"
+      "const": "0.0.2"
     }
   },
   "required": [
     "version",
-    "global_stats",
-    "player_stats"
+    "game_stats",
+    "player_stats",
+    "rally_start_times"
   ],
   "title": "Game Insights",
   "type": "object"

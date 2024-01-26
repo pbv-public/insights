@@ -139,6 +139,130 @@
       "description": "The total number of returns by the player.",
       "title": "Count"
     },
+    "role_stats": {
+      "additionalProperties": false,
+      "description": "stats about this player in each serving and receiving role",
+      "properties": {
+        "receiving": {
+          "additionalProperties": false,
+          "description": "stats while this player's team was receiving",
+          "properties": {
+            "oneself": {
+              "additionalProperties": false,
+              "description": "stats while this player's team was receiving and this player was the receiver",
+              "properties": {
+                "kitchen_arrival": {
+                  "$ref": "/types/count",
+                  "description": "number of times the player arrived at the kitchen",
+                  "title": "Count"
+                },
+                "total": {
+                  "$ref": "/types/count",
+                  "description": "total number of rallies counted in this category",
+                  "title": "Count"
+                }
+              },
+              "required": [
+                "kitchen_arrival",
+                "total"
+              ],
+              "title": "Rally Category Counts",
+              "type": "object"
+            },
+            "partner": {
+              "additionalProperties": false,
+              "description": "stats while this player's team was receiving and this player's partner was the receiver",
+              "properties": {
+                "kitchen_arrival": {
+                  "$ref": "/types/count",
+                  "description": "number of times the player arrived at the kitchen",
+                  "title": "Count"
+                },
+                "total": {
+                  "$ref": "/types/count",
+                  "description": "total number of rallies counted in this category",
+                  "title": "Count"
+                }
+              },
+              "required": [
+                "kitchen_arrival",
+                "total"
+              ],
+              "title": "Rally Category Counts",
+              "type": "object"
+            }
+          },
+          "required": [
+            "partner",
+            "oneself"
+          ],
+          "title": "Rally Stats when Receiving",
+          "type": "object"
+        },
+        "serving": {
+          "additionalProperties": false,
+          "description": "stats while this player's team was serving",
+          "properties": {
+            "oneself": {
+              "additionalProperties": false,
+              "description": "stats while this player's team was serving and this player was the server",
+              "properties": {
+                "kitchen_arrival": {
+                  "$ref": "/types/count",
+                  "description": "number of times the player arrived at the kitchen",
+                  "title": "Count"
+                },
+                "total": {
+                  "$ref": "/types/count",
+                  "description": "total number of rallies counted in this category",
+                  "title": "Count"
+                }
+              },
+              "required": [
+                "kitchen_arrival",
+                "total"
+              ],
+              "title": "Rally Category Counts",
+              "type": "object"
+            },
+            "partner": {
+              "additionalProperties": false,
+              "description": "stats while this player's team was serving and this player's partner was the server",
+              "properties": {
+                "kitchen_arrival": {
+                  "$ref": "/types/count",
+                  "description": "number of times the player arrived at the kitchen",
+                  "title": "Count"
+                },
+                "total": {
+                  "$ref": "/types/count",
+                  "description": "total number of rallies counted in this category",
+                  "title": "Count"
+                }
+              },
+              "required": [
+                "kitchen_arrival",
+                "total"
+              ],
+              "title": "Rally Category Counts",
+              "type": "object"
+            }
+          },
+          "required": [
+            "partner",
+            "oneself"
+          ],
+          "title": "Rally Stats when Serving",
+          "type": "object"
+        }
+      },
+      "required": [
+        "serving",
+        "receiving"
+      ],
+      "title": "Role Stats",
+      "type": "object"
+    },
     "serve_count": {
       "$ref": "/types/count",
       "description": "The total number of serves by the player.",
@@ -381,6 +505,7 @@
     "top_speed_serve",
     "average_serve_speed",
     "left_side_percentage",
+    "role_stats",
     "total_team_shot_percentage",
     "shot_zones",
     "ball_directions",
