@@ -1,0 +1,28 @@
+{
+  "$id": "/types/world_position/3d",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "a position in feet relative to the far left court corner",
+  "properties": {
+    "x": {
+      "description": "distance along the court's 20ft width (baseline)",
+      "type": "number"
+    },
+    "y": {
+      "description": "distance the court's 44ft length (sideline)",
+      "type": "number"
+    },
+    "z": {
+      "description": "feet above the ground",
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "x",
+    "y",
+    "z"
+  ],
+  "title": "World XYZ",
+  "type": "object"
+}

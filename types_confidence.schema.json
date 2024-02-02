@@ -1,0 +1,9 @@
+{
+  "$id": "/types/confidence",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "the confidence of a prediction",
+  "maximum": 1,
+  "minimum": 0,
+  "title": "Prediction Confidence",
+  "type": "number"
+}

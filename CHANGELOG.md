@@ -1,7 +1,17 @@
 # Insights Schema Changelog
 
-## [v0.0.2](https://github.com/pbv-schemas/insights/releases/tag/v0.0.2) on 2024-Jan-25
-> * [Compare to Previous Version](https://github.com/pbv-schemas/insights/compare/v0.0.1...v0.0.2?expand=1)
+## [v0.0.3](https://github.com/pbv-public/insights/releases/tag/v0.0.3) on 2024-Feb-02
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.2...v0.0.3?expand=1)
+> * Version Checksums: Functional=d777dc2f0fc648a5c885379185aea1fd Full=492e710ca8f06112f8e036d9d58cf301
+
+* changes to `third_shot_stats`:
+  * added `ball_trajectories`
+  * removed `count` (can get this from `ball_trajectories.length` instead)
+  * fixed grammar error in description of this field
+
+-------------------------------------
+## [v0.0.2](https://github.com/pbv-public/insights/releases/tag/v0.0.2) on 2024-Jan-25
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.1...v0.0.2?expand=1)
 > * Version Checksums: Functional=7a10024a27bdd821d4ea37a51525472e Full=f2acc5144586a825b687348e1089819d
 
 * Renamed `global_stats` to `game_stats`
@@ -18,8 +28,8 @@ kitchenArrivalPercentageAsServingSide =
 ```
 
 -------------------------------------
-## [v0.0.1](https://github.com/pbv-schemas/insights/releases/tag/v0.0.1) on 2024-Jan-25
-> * [Compare to Previous Version](https://github.com/pbv-schemas/insights/compare/v0.0.1^...v0.0.1?expand=1)
+## [v0.0.1](https://github.com/pbv-public/insights/releases/tag/v0.0.1) on 2024-Jan-25
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.1^...v0.0.1?expand=1)
 > * Version Checksums: Functional=228b591b5508cbf215cf5a8b86e24d64 Full=0c21e934a88013aafdd8c1b40be5d6ab
 
 fix dev and release docs merging
