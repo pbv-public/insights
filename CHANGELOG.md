@@ -1,5 +1,15 @@
 # Insights Schema Changelog
 
+## [v0.0.4](https://github.com/pbv-public/insights/releases/tag/v0.0.4) on 2024-Feb-15
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.3...v0.0.4?expand=1)
+> * Version Checksums: Functional=471650b712612bc1ed06964da00a4dd1 Full=71c75b0477aa12b98981efaabeca0bb8
+
+* removed `rally_start_times`
+* updated how heatmap data is encoded
+* added median serve and shot speed
+* change shot zone data to counts from percentages
+
+-------------------------------------
 ## [v0.0.3](https://github.com/pbv-public/insights/releases/tag/v0.0.3) on 2024-Feb-02
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.2...v0.0.3?expand=1)
 > * Version Checksums: Functional=d777dc2f0fc648a5c885379185aea1fd Full=492e710ca8f06112f8e036d9d58cf301

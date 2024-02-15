@@ -20,25 +20,14 @@
       "minItems": 4,
       "type": "array"
     },
-    "rally_start_times": {
-      "description": "the time in the video each rally in this game started",
-      "items": {
-        "$ref": "/types/video_time",
-        "description": "when this rally started",
-        "title": "Video Milliseconds"
-      },
-      "title": "Rally Start Times",
-      "type": "array"
-    },
     "version": {
-      "const": "0.0.3"
+      "const": "0.0.4"
     }
   },
   "required": [
     "version",
     "game_stats",
-    "player_stats",
-    "rally_start_times"
+    "player_stats"
   ],
   "title": "Game Insights",
   "type": "object"
