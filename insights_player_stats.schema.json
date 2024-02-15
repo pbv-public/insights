@@ -85,31 +85,26 @@
           "type": "number"
         },
         "heat_map_coordinates": {
-          "description": "An array of x/y pairs representing the player positions during any shot event where the player is on the court.",
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "x": {
-                "description": "Scaled value representing the player's position across the width of the court.",
-                "maximum": 100,
-                "minimum": 0,
-                "type": "integer"
-              },
-              "y": {
-                "description": "Scaled value representing the player's position across the length of the court.",
-                "maximum": 100,
-                "minimum": 0,
-                "type": "integer"
-              }
+          "additionalProperties": false,
+          "description": "Scaled player positions during any shot event where the player is on the court.",
+          "properties": {
+            "xs_encoded": {
+              "$ref": "/types/encoded_positions",
+              "description": "Scaled, base64 encoded integers between [0,127] representing the player's position across the width (x dimension) of the court",
+              "title": "Encoded X Positions"
             },
-            "required": [
-              "x",
-              "y"
-            ],
-            "type": "object"
+            "ys_encoded": {
+              "$ref": "/types/encoded_positions",
+              "description": "Scaled, reflected, base64 encoded integers between [0,127] representing the player's position across the length (y dimension) of the court",
+              "title": "Encoded Y Positions"
+            }
           },
+          "required": [
+            "xs_encoded",
+            "ys_encoded"
+          ],
           "title": "Heat Map Coordinates",
-          "type": "array"
+          "type": "object"
         },
         "total_distance_covered": {
           "description": "The number of feet each player travels between shots in all rallies combined.",
@@ -133,6 +128,14 @@
       "$ref": "/types/percentage",
       "description": "The percentage of shots that went to the left side.",
       "title": "Percentage"
+    },
+    "median_serve_speed": {
+      "description": "The median speed of serves by the player (MPH).",
+      "type": "number"
+    },
+    "median_speed_shot": {
+      "description": "The median speed of shots by the player (MPH).",
+      "type": "number"
     },
     "return_count": {
       "$ref": "/types/count",
@@ -281,34 +284,34 @@
           "description": "how often returns land in various zones",
           "properties": {
             "deep": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed deep in the opponents court",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed deep in the opponents court",
+              "title": "Count"
             },
             "kitchen": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed in the opponents kitchen",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed in the opponents kitchen",
+              "title": "Count"
             },
             "mid": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed in the transition zone in the opponents court",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed in the transition zone in the opponents court",
+              "title": "Count"
             },
             "net": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
+              "title": "Count"
             },
             "out": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball hit outside the court (fault)",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball hit outside the court (fault)",
+              "title": "Count"
             },
             "short": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed short in the opponents court",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed short in the opponents court",
+              "title": "Count"
             }
           },
           "required": [
@@ -327,34 +330,34 @@
           "description": "how often serves land in various zones",
           "properties": {
             "deep": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed deep in the opponents court",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed deep in the opponents court",
+              "title": "Count"
             },
             "kitchen": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed in the opponents kitchen",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed in the opponents kitchen",
+              "title": "Count"
             },
             "mid": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed in the transition zone in the opponents court",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed in the transition zone in the opponents court",
+              "title": "Count"
             },
             "net": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
+              "title": "Count"
             },
             "out": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball hit outside the court (fault)",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball hit outside the court (fault)",
+              "title": "Count"
             },
             "short": {
-              "$ref": "/types/percentage",
-              "description": "how often the ball landed short in the opponents court",
-              "title": "Percentage"
+              "$ref": "/types/count",
+              "description": "the number of times the ball landed short in the opponents court",
+              "title": "Count"
             }
           },
           "required": [
@@ -692,8 +695,10 @@
     "ground_stroke_count",
     "top_speed_shot",
     "average_speed_shot",
+    "median_speed_shot",
     "top_speed_serve",
     "average_serve_speed",
+    "median_serve_speed",
     "left_side_percentage",
     "role_stats",
     "total_team_shot_percentage",

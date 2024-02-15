@@ -1,7 +1,17 @@
 # Insights Schema Changelog
 
+## [v0.0.4-preview](https://github.com/pbv-public/insights/releases/tag/v0.0.4-preview) on 2024-Feb-15
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.3...preview?expand=1)
+> * Version Checksums: Functional=471650b712612bc1ed06964da00a4dd1 Full=71c75b0477aa12b98981efaabeca0bb8
+
+* removed `rally_start_times`
+* updated how heatmap data is encoded
+* added median serve and shot speed
+* change shot zone data to counts from percentages
+
+-------------------------------------
 ## [v0.0.3](https://github.com/pbv-public/insights/releases/tag/v0.0.3) on 2024-Feb-02
-> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.2...v0.0.3?expand=1)
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.2...preview?expand=1)
 > * Version Checksums: Functional=d777dc2f0fc648a5c885379185aea1fd Full=492e710ca8f06112f8e036d9d58cf301
 
 * changes to `third_shot_stats`:
@@ -11,7 +21,7 @@
 
 -------------------------------------
 ## [v0.0.2](https://github.com/pbv-public/insights/releases/tag/v0.0.2) on 2024-Jan-25
-> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.1...v0.0.2?expand=1)
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.1...preview?expand=1)
 > * Version Checksums: Functional=7a10024a27bdd821d4ea37a51525472e Full=f2acc5144586a825b687348e1089819d
 
 * Renamed `global_stats` to `game_stats`
@@ -29,7 +39,7 @@ kitchenArrivalPercentageAsServingSide =
 
 -------------------------------------
 ## [v0.0.1](https://github.com/pbv-public/insights/releases/tag/v0.0.1) on 2024-Jan-25
-> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.1^...v0.0.1?expand=1)
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.1^...preview?expand=1)
 > * Version Checksums: Functional=228b591b5508cbf215cf5a8b86e24d64 Full=0c21e934a88013aafdd8c1b40be5d6ab
 
 fix dev and release docs merging
