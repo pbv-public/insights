@@ -1,5 +1,13 @@
 # Insights Schema Changelog
 
+## [v0.0.5](https://github.com/pbv-public/insights/releases/tag/v0.0.5) on 2024-Feb-28
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.4...v0.0.5?expand=1)
+> * Version Checksums: Functional=5f8f393cef184b686156d363ab4dd67f Full=c59a1826f656628e80dc1d328d6b7585
+
+- updated speed stats to be specific to drives and serves
+- improved speed groupings (fastest, average, median)
+
+-------------------------------------
 ## [v0.0.4](https://github.com/pbv-public/insights/releases/tag/v0.0.4) on 2024-Feb-15
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.3...v0.0.4?expand=1)
 > * Version Checksums: Functional=471650b712612bc1ed06964da00a4dd1 Full=71c75b0477aa12b98981efaabeca0bb8

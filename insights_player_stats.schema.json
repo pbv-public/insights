@@ -4,14 +4,6 @@
   "additionalProperties": false,
   "description": "Contains player-specific stats over the whole game.",
   "properties": {
-    "average_serve_speed": {
-      "description": "The average speed of serves by the player (MPH).",
-      "type": "number"
-    },
-    "average_speed_shot": {
-      "description": "The average speed of shots by the player (MPH).",
-      "type": "number"
-    },
     "ball_directions": {
       "additionalProperties": false,
       "description": "Categorizes ball directions across a player's shots (9 total).",
@@ -128,14 +120,6 @@
       "$ref": "/types/percentage",
       "description": "The percentage of shots that went to the left side.",
       "title": "Percentage"
-    },
-    "median_serve_speed": {
-      "description": "The median speed of serves by the player (MPH).",
-      "type": "number"
-    },
-    "median_speed_shot": {
-      "description": "The median speed of shots by the player (MPH).",
-      "type": "number"
     },
     "return_count": {
       "$ref": "/types/count",
@@ -275,6 +259,73 @@
       "$ref": "/types/count",
       "description": "The total number of shots by the player.",
       "title": "Count"
+    },
+    "shot_speeds": {
+      "additionalProperties": false,
+      "description": "Speed stats across a player's shots.",
+      "properties": {
+        "drive": {
+          "additionalProperties": false,
+          "description": "Shot speeds resulting from drives.",
+          "properties": {
+            "average": {
+              "$ref": "/types/speed",
+              "description": "The average shot speed across all shots by the player (MPH).",
+              "title": "Speed"
+            },
+            "fastest": {
+              "$ref": "/types/speed",
+              "description": "The fastest shot by the player (MPH).",
+              "title": "Speed"
+            },
+            "median": {
+              "$ref": "/types/speed",
+              "description": "The median shot speed across all shots by the player (MPH).",
+              "title": "Speed"
+            }
+          },
+          "required": [
+            "fastest",
+            "median",
+            "average"
+          ],
+          "title": "Shot Speed",
+          "type": "object"
+        },
+        "serve": {
+          "additionalProperties": false,
+          "description": "Shot speeds resulting from serves.",
+          "properties": {
+            "average": {
+              "$ref": "/types/speed",
+              "description": "The average shot speed across all shots by the player (MPH).",
+              "title": "Speed"
+            },
+            "fastest": {
+              "$ref": "/types/speed",
+              "description": "The fastest shot by the player (MPH).",
+              "title": "Speed"
+            },
+            "median": {
+              "$ref": "/types/speed",
+              "description": "The median shot speed across all shots by the player (MPH).",
+              "title": "Speed"
+            }
+          },
+          "required": [
+            "fastest",
+            "median",
+            "average"
+          ],
+          "title": "Shot Speed",
+          "type": "object"
+        }
+      },
+      "required": [
+        "drive",
+        "serve"
+      ],
+      "type": "object"
     },
     "shot_zones": {
       "additionalProperties": false,
@@ -665,14 +716,6 @@
       "title": "Third Shot Stats",
       "type": "object"
     },
-    "top_speed_serve": {
-      "description": "The top speed serve of the player (MPH).",
-      "type": "number"
-    },
-    "top_speed_shot": {
-      "description": "The top speed shot of the player (MPH).",
-      "type": "number"
-    },
     "total_team_shot_percentage": {
       "$ref": "/types/percentage",
       "description": "The percentage of total team shots taken by the player.",
@@ -693,12 +736,7 @@
     "final_shot_count",
     "volley_count",
     "ground_stroke_count",
-    "top_speed_shot",
-    "average_speed_shot",
-    "median_speed_shot",
-    "top_speed_serve",
-    "average_serve_speed",
-    "median_serve_speed",
+    "shot_speeds",
     "left_side_percentage",
     "role_stats",
     "total_team_shot_percentage",
