@@ -1,5 +1,13 @@
 # Insights Schema Changelog
 
+## [v0.0.6](https://github.com/pbv-public/insights/releases/tag/v0.0.6) on 2024-Mar-01
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.5...v0.0.6?expand=1)
+> * Version Checksums: Functional=e9fe5cad26875ebd3141ad079378ff4b Full=2af478a42d3c992137164678d291e075
+
+- `game_outcome` is now an array with two elements (one for each team). The elements can be of type `null`, `string`, or `integer`. If `null`, the outcome is unknown. If `string`, the outcome is `won` or `lost`. If it's an `integer` the outcome entry represents the score.
+- Added a quality score to each ball trajectory, which is a `double` between [0,1]. 1 is the best score, 0 is the worst score.
+
+-------------------------------------
 ## [v0.0.5](https://github.com/pbv-public/insights/releases/tag/v0.0.5) on 2024-Feb-28
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.4...v0.0.5?expand=1)
 > * Version Checksums: Functional=5f8f393cef184b686156d363ab4dd67f Full=c59a1826f656628e80dc1d328d6b7585

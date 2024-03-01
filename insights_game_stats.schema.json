@@ -10,32 +10,33 @@
       "type": "number"
     },
     "game_outcome": {
-      "additionalProperties": false,
-      "description": "the final score and who won",
-      "properties": {
-        "team_scores": {
-          "additionalProperties": false,
-          "description": "Final scores for each team. Teams that don't have a score are omitted. The key is /types/team_id.",
-          "patternProperties": {
-            "^0|1$": {
-              "description": "Final points for the team.",
-              "minimum": 0,
-              "type": "integer"
-            }
+      "description": "the result (e.g., points scored) by each team",
+      "items": {
+        "anyOf": [
+          {
+            "description": "we don't know the team's score or whether they won or lost",
+            "type": "null"
           },
-          "type": "object"
-        },
-        "winning_team_id": {
-          "$ref": "/types/team_id",
-          "description": "The winning team's ID. Omitted if it was a tie.",
-          "title": "Team ID"
-        }
+          {
+            "description": "whether the team won or lost (we don't know how points they scored)",
+            "enum": [
+              "won",
+              "lost"
+            ],
+            "type": "string"
+          },
+          {
+            "description": "how many points the team scored (and by comparing it with the other team's score, we can also determine which team win)')",
+            "minimum": 0,
+            "type": "integer"
+          }
+        ],
+        "description": "Describes the team's result (score or won/lost, if known)",
+        "title": "Game Outcome for Team"
       },
-      "required": [
-        "team_scores"
-      ],
-      "title": "Game Outcome",
-      "type": "object"
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
     },
     "highlights": {
       "description": "Stores highlight-worthy rallies by rally_idx.",

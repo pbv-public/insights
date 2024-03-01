@@ -488,6 +488,13 @@
                     "description": "where the ball reached its highest (z) point",
                     "title": "World XYZ"
                   },
+                  "quality": {
+                    "description": "A measure of the quality of this trajectory. 1 is the best score.",
+                    "maximum": 1,
+                    "minimum": 0,
+                    "title": "Quality Score",
+                    "type": "number"
+                  },
                   "start": {
                     "additionalProperties": false,
                     "description": "the moment the ball starts flying after being hit",
@@ -579,6 +586,13 @@
                     "description": "where the ball reached its highest (z) point",
                     "title": "World XYZ"
                   },
+                  "quality": {
+                    "description": "A measure of the quality of this trajectory. 1 is the best score.",
+                    "maximum": 1,
+                    "minimum": 0,
+                    "title": "Quality Score",
+                    "type": "number"
+                  },
                   "start": {
                     "additionalProperties": false,
                     "description": "the moment the ball starts flying after being hit",
@@ -669,6 +683,13 @@
                     "$ref": "/types/world_position/3d",
                     "description": "where the ball reached its highest (z) point",
                     "title": "World XYZ"
+                  },
+                  "quality": {
+                    "description": "A measure of the quality of this trajectory. 1 is the best score.",
+                    "maximum": 1,
+                    "minimum": 0,
+                    "title": "Quality Score",
+                    "type": "number"
                   },
                   "start": {
                     "additionalProperties": false,

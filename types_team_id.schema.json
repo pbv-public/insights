@@ -1,9 +1,0 @@
-{
-  "$id": "/types/team_id",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "\nEach game consists of two teams and four players.\n\n_Team 0_\n* Players 0 and 1 are on team 0.\n* Team 0 starts the first rally on the side of the court which contains the origin.\n    * The origin (x=0 y=0 z=0) is located in the far-left corner of the court relative\n      to the camera.\n* Player 0 is the first server for their team.\n\n_Team 1_\n* Players 2 and 3 are on team 1.\n* Player 2 is the first server for their team.\n\nIn arrays of team data, team ID 0's data comes first.",
-  "maximum": 1,
-  "minimum": 0,
-  "title": "Team ID",
-  "type": "integer"
-}

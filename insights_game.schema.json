@@ -21,7 +21,7 @@
       "type": "array"
     },
     "version": {
-      "const": "0.0.5"
+      "const": "0.0.6"
     }
   },
   "required": [
