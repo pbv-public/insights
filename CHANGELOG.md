@@ -1,5 +1,15 @@
 # Insights Schema Changelog
 
+## [v0.0.7](https://github.com/pbv-public/insights/releases/tag/v0.0.7) on 2024-Mar-19
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.6...v0.0.7?expand=1)
+> * Version Checksums: Functional=04c1cecf6d3c89c3330a1bea3fdfabe6 Full=b0789c2064010f4fdfde45d771c87817
+
+- added new `percentage_of_served_rallies_won` optional stat
+- added new `avg_distance_from_baseline` optional stat
+- `avg_speed` and `avg_height_over_net` are now optional
+- `drive` and `serve` shot speeds are now optional
+
+-------------------------------------
 ## [v0.0.6](https://github.com/pbv-public/insights/releases/tag/v0.0.6) on 2024-Mar-01
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.5...v0.0.6?expand=1)
 > * Version Checksums: Functional=e9fe5cad26875ebd3141ad079378ff4b Full=2af478a42d3c992137164678d291e075

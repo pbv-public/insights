@@ -53,10 +53,11 @@
     },
     "longest_rally": {
       "additionalProperties": false,
-      "description": "stats about the longest rally in the game",
+      "description": "Contains the rally index and number of shots for the longest rally in the game.",
       "properties": {
         "num_shots": {
           "description": "Number of shots in the longest rally.",
+          "minimum": 0,
           "type": "integer"
         },
         "rally_idx": {
