@@ -21,7 +21,10 @@
       "type": "array"
     },
     "version": {
-      "const": "0.0.7"
+      "$ref": "/types/version",
+      "const": "0.0.8",
+      "description": "a version string matching x.x.x where x represents one or more digits",
+      "title": "Version"
     }
   },
   "required": [

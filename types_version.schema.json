@@ -1,0 +1,8 @@
+{
+  "$id": "/types/version",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "a version string matching x.x.x where x represents one or more digits",
+  "pattern": "^\\d+\\.\\d+\\.\\d+$",
+  "title": "Version",
+  "type": "string"
+}

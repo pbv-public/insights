@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.8](https://github.com/pbv-public/insights/releases/tag/v0.0.8) on 2024-Mar-23
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.7...v0.0.8?expand=1)
+> * Version Checksums: Functional=940fd2f663eb7498e07ba56b6ab23f86 Full=115cd3cc03264d151ef47cfa2dcbc3e4
+
+- the `version` field is now a string matching x.x.x, where x represents one or more digits
+
+-------------------------------------
 ## [v0.0.7](https://github.com/pbv-public/insights/releases/tag/v0.0.7) on 2024-Mar-19
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.6...v0.0.7?expand=1)
 > * Version Checksums: Functional=04c1cecf6d3c89c3330a1bea3fdfabe6 Full=b0789c2064010f4fdfde45d771c87817
