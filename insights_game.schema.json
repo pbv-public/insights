@@ -9,6 +9,63 @@
       "description": "Contains statistics about the game as a whole.",
       "title": "Game Stats"
     },
+    "highlights": {
+      "items": {
+        "description": "a section of the video that stands out",
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "long_rally"
+            }
+          }
+        },
+        "properties": {
+          "e": {
+            "$ref": "/types/video_time",
+            "description": "when in the original video the highlight ends",
+            "title": "Video Milliseconds"
+          },
+          "kind": {
+            "enum": [
+              "long_rally"
+            ],
+            "type": "string"
+          },
+          "s": {
+            "$ref": "/types/video_time",
+            "description": "when in the original video the highlight starts",
+            "title": "Video Milliseconds"
+          },
+          "score": {
+            "$ref": "/types/quality_score",
+            "description": "quality compared to other highlights of the _same kind_",
+            "title": "Quality Score"
+          }
+        },
+        "required": [
+          "s",
+          "e",
+          "score",
+          "kind"
+        ],
+        "then": {
+          "properties": {
+            "rally_idx": {
+              "description": "which rally in the video this is (0-indexed)",
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "rally_idx"
+          ]
+        },
+        "title": "Highlight",
+        "type": "object",
+        "unevaluatedProperties": false
+      },
+      "type": "array"
+    },
     "player_stats": {
       "description": "each player's stats",
       "items": {
@@ -20,9 +77,18 @@
       "minItems": 4,
       "type": "array"
     },
+    "rallies": {
+      "description": "An ordered list of the rallies within the game.",
+      "items": {
+        "$ref": "/events/rally",
+        "title": "Rally"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.8",
+      "const": "0.0.9",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
@@ -30,7 +96,9 @@
   "required": [
     "version",
     "game_stats",
-    "player_stats"
+    "highlights",
+    "player_stats",
+    "rallies"
   ],
   "title": "Game Insights",
   "type": "object"

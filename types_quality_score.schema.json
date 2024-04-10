@@ -1,0 +1,9 @@
+{
+  "$id": "/types/quality_score",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A measure of quality where 1 is the best score.",
+  "maximum": 1,
+  "minimum": 0,
+  "title": "Quality Score",
+  "type": "number"
+}

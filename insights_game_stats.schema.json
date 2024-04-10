@@ -38,14 +38,6 @@
       "minItems": 2,
       "type": "array"
     },
-    "highlights": {
-      "description": "Stores highlight-worthy rallies by rally_idx.",
-      "items": {
-        "minimum": 0,
-        "type": "integer"
-      },
-      "type": "array"
-    },
     "kitchen_rallies": {
       "description": "Represents the number of rallies where all players get to the kitchen.",
       "minimum": 0,
@@ -90,7 +82,6 @@
     "kitchen_rallies",
     "avg_shots",
     "longest_rally",
-    "highlights",
     "team_percentage_to_kitchen"
   ],
   "title": "Game Stats",

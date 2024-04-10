@@ -1,5 +1,18 @@
 # Insights Schema Changelog
 
+## [v0.0.9](https://github.com/pbv-public/insights/releases/tag/v0.0.9) on 2024-Apr-10
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.8...v0.0.9?expand=1)
+> * Version Checksums: Functional=68bde186c17ba96ceb1fb289547af573 Full=ed788c016c1f1758ee822dc2c741e68c
+
+- included game rallies in insights
+- restructured shot data and available fields
+- quality now has two components (execution and selection) and an overall score
+- highlights are generalized and exist now at the top level
+- expanded shot information with information about errors, faults, poaching, resets, stroke side, vertical type, stroke type, winner type, shot type, and various resulting ball movement fields
+- a shot type can now be one of: smash, lob, dink, drop, drive, atp, erne, tweener
+- each shot type has different associated criteria for execution quality
+
+-------------------------------------
 ## [v0.0.8](https://github.com/pbv-public/insights/releases/tag/v0.0.8) on 2024-Mar-23
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.7...v0.0.8?expand=1)
 > * Version Checksums: Functional=940fd2f663eb7498e07ba56b6ab23f86 Full=115cd3cc03264d151ef47cfa2dcbc3e4

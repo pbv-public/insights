@@ -1,0 +1,20 @@
+{
+  "$id": "/events/player",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "describes where a player is and any events related to them at a particular moment",
+  "properties": {
+    "kitchen_change": {
+      "$ref": "/events/kitchen_change",
+      "description": "Indicates whether a player arrived at or left the kitchen line. This is omitted if the player neither arrived nor departed the kitchen at this time.",
+      "title": "Kitchen Change Type"
+    },
+    "player_position": {
+      "$ref": "/types/world_position/2d",
+      "description": "The player's position on the court at this time. This is omitted if we don't know where they are (e.g., they ran outside the frame of the video).",
+      "title": "World XY"
+    }
+  },
+  "title": "Player Snapshot",
+  "type": "object"
+}
