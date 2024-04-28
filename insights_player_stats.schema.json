@@ -130,27 +130,39 @@
       "additionalProperties": false,
       "description": "Stats about returns. Omitted if the player did not hit any returns.",
       "properties": {
-        "avg_distance_from_baseline": {
-          "description": "The average distance the ball landed from the opponent's baseline across shots",
+        "avg_baseline_distance": {
+          "description": "Average distance from the opponent's baseline",
           "type": "number"
         },
-        "avg_height_over_net": {
-          "description": "The average height over net across shots",
+        "avg_height_above_net": {
+          "description": "Average height above the net as the ball crosses it",
           "type": "number"
         },
         "avg_quality_score": {
           "$ref": "/types/quality_score",
-          "description": "The average quality score across shots",
+          "description": "Average quality score of shots",
           "title": "Quality Score"
         },
         "avg_speed": {
-          "description": "The average speed across shots",
+          "description": "Average shot speed",
           "type": "number"
         },
         "count": {
           "$ref": "/types/count",
-          "description": "The total number of shots of this type.",
+          "description": "Total number of shots",
           "title": "Count"
+        },
+        "median_baseline_distance": {
+          "description": "Median distance from the opponent's baseline",
+          "type": "number"
+        },
+        "median_height_above_net": {
+          "description": "Median height above the net as the ball crosses it",
+          "type": "number"
+        },
+        "median_speed": {
+          "description": "Median shot speed",
+          "type": "number"
         }
       },
       "required": [
@@ -287,27 +299,39 @@
       "additionalProperties": false,
       "description": "Stats about serves. Omitted if the player did not hit any serves.",
       "properties": {
-        "avg_distance_from_baseline": {
-          "description": "The average distance the ball landed from the opponent's baseline across shots",
+        "avg_baseline_distance": {
+          "description": "Average distance from the opponent's baseline",
           "type": "number"
         },
-        "avg_height_over_net": {
-          "description": "The average height over net across shots",
+        "avg_height_above_net": {
+          "description": "Average height above the net as the ball crosses it",
           "type": "number"
         },
         "avg_quality_score": {
           "$ref": "/types/quality_score",
-          "description": "The average quality score across shots",
+          "description": "Average quality score of shots",
           "title": "Quality Score"
         },
         "avg_speed": {
-          "description": "The average speed across shots",
+          "description": "Average shot speed",
           "type": "number"
         },
         "count": {
           "$ref": "/types/count",
-          "description": "The total number of shots of this type.",
+          "description": "Total number of shots",
           "title": "Count"
+        },
+        "median_baseline_distance": {
+          "description": "Median distance from the opponent's baseline",
+          "type": "number"
+        },
+        "median_height_above_net": {
+          "description": "Median height above the net as the ball crosses it",
+          "type": "number"
+        },
+        "median_speed": {
+          "description": "Median shot speed",
+          "type": "number"
         }
       },
       "required": [
@@ -500,27 +524,39 @@
           "additionalProperties": false,
           "description": "Stats about third shot drives. Omitted if the player did not hit any drives.",
           "properties": {
-            "avg_distance_from_baseline": {
-              "description": "The average distance the ball landed from the opponent's baseline across shots",
+            "avg_baseline_distance": {
+              "description": "Average distance from the opponent's baseline",
               "type": "number"
             },
-            "avg_height_over_net": {
-              "description": "The average height over net across shots",
+            "avg_height_above_net": {
+              "description": "Average height above the net as the ball crosses it",
               "type": "number"
             },
             "avg_quality_score": {
               "$ref": "/types/quality_score",
-              "description": "The average quality score across shots",
+              "description": "Average quality score of shots",
               "title": "Quality Score"
             },
             "avg_speed": {
-              "description": "The average speed across shots",
+              "description": "Average shot speed",
               "type": "number"
             },
             "count": {
               "$ref": "/types/count",
-              "description": "The total number of shots of this type.",
+              "description": "Total number of shots",
               "title": "Count"
+            },
+            "median_baseline_distance": {
+              "description": "Median distance from the opponent's baseline",
+              "type": "number"
+            },
+            "median_height_above_net": {
+              "description": "Median height above the net as the ball crosses it",
+              "type": "number"
+            },
+            "median_speed": {
+              "description": "Median shot speed",
+              "type": "number"
             }
           },
           "required": [
@@ -533,27 +569,39 @@
           "additionalProperties": false,
           "description": "Stats about third shot drops. Omitted if the player did not hit any drops.",
           "properties": {
-            "avg_distance_from_baseline": {
-              "description": "The average distance the ball landed from the opponent's baseline across shots",
+            "avg_baseline_distance": {
+              "description": "Average distance from the opponent's baseline",
               "type": "number"
             },
-            "avg_height_over_net": {
-              "description": "The average height over net across shots",
+            "avg_height_above_net": {
+              "description": "Average height above the net as the ball crosses it",
               "type": "number"
             },
             "avg_quality_score": {
               "$ref": "/types/quality_score",
-              "description": "The average quality score across shots",
+              "description": "Average quality score of shots",
               "title": "Quality Score"
             },
             "avg_speed": {
-              "description": "The average speed across shots",
+              "description": "Average shot speed",
               "type": "number"
             },
             "count": {
               "$ref": "/types/count",
-              "description": "The total number of shots of this type.",
+              "description": "Total number of shots",
               "title": "Count"
+            },
+            "median_baseline_distance": {
+              "description": "Median distance from the opponent's baseline",
+              "type": "number"
+            },
+            "median_height_above_net": {
+              "description": "Median height above the net as the ball crosses it",
+              "type": "number"
+            },
+            "median_speed": {
+              "description": "Median shot speed",
+              "type": "number"
             }
           },
           "required": [
@@ -566,27 +614,39 @@
           "additionalProperties": false,
           "description": "Stats about third shot lobs. Omitted if the player did not hit any lobs.",
           "properties": {
-            "avg_distance_from_baseline": {
-              "description": "The average distance the ball landed from the opponent's baseline across shots",
+            "avg_baseline_distance": {
+              "description": "Average distance from the opponent's baseline",
               "type": "number"
             },
-            "avg_height_over_net": {
-              "description": "The average height over net across shots",
+            "avg_height_above_net": {
+              "description": "Average height above the net as the ball crosses it",
               "type": "number"
             },
             "avg_quality_score": {
               "$ref": "/types/quality_score",
-              "description": "The average quality score across shots",
+              "description": "Average quality score of shots",
               "title": "Quality Score"
             },
             "avg_speed": {
-              "description": "The average speed across shots",
+              "description": "Average shot speed",
               "type": "number"
             },
             "count": {
               "$ref": "/types/count",
-              "description": "The total number of shots of this type.",
+              "description": "Total number of shots",
               "title": "Count"
+            },
+            "median_baseline_distance": {
+              "description": "Median distance from the opponent's baseline",
+              "type": "number"
+            },
+            "median_height_above_net": {
+              "description": "Median height above the net as the ball crosses it",
+              "type": "number"
+            },
+            "median_speed": {
+              "description": "Median shot speed",
+              "type": "number"
             }
           },
           "required": [

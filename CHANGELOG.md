@@ -1,5 +1,14 @@
 # Insights Schema Changelog
 
+## [v0.0.10](https://github.com/pbv-public/insights/releases/tag/v0.0.10) on 2024-Apr-28
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.9...v0.0.10?expand=1)
+> * Version Checksums: Functional=381888455f0c34f010f9ea5684f59442 Full=9f2144b8edace050e8df7c9e7e024081
+
+- median speed, median height above net, and median baseline distance now available from shot stats
+- names and descriptions for shot stats improved
+- height above net is now measured from the estimated top of the net instead of the ground
+
+-------------------------------------
 ## [v0.0.9](https://github.com/pbv-public/insights/releases/tag/v0.0.9) on 2024-Apr-10
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.8...v0.0.9?expand=1)
 > * Version Checksums: Functional=68bde186c17ba96ceb1fb289547af573 Full=ed788c016c1f1758ee822dc2c741e68c
