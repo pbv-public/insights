@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.11](https://github.com/pbv-public/insights/releases/tag/v0.0.11) on 2024-May-03
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.10...v0.0.11?expand=1)
+> * Version Checksums: Functional=113684b54ca1aa73908dab36e9068b74 Full=960ee64bad2bd4c612ac45c0c488cfbb
+
+* introduced two new highlight kinds. `atp` and `erne`
+
+-------------------------------------
 ## [v0.0.10](https://github.com/pbv-public/insights/releases/tag/v0.0.10) on 2024-Apr-28
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.9...v0.0.10?expand=1)
 > * Version Checksums: Functional=381888455f0c34f010f9ea5684f59442 Full=9f2144b8edace050e8df7c9e7e024081
