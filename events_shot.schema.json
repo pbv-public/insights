@@ -98,7 +98,11 @@
       "type": "boolean"
     },
     "is_reset": {
-      "description": "Whether this shot takes significant pace off the ball. Omitted if unknown.",
+      "description": "Whether this shot takes significant pace off the ball. Omitted if unknown or not applicable.",
+      "type": "boolean"
+    },
+    "is_speedup": {
+      "description": "To be considered a speedup, the following conditions must be met:\n\n- the shot adds significant pace on the ball\n- the hitting player is near the kitchen\n- at least one of the opposing players is near the kitchen\n\nOmitted if unknown or not applicable.",
       "type": "boolean"
     },
     "is_volley": {

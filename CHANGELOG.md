@@ -1,5 +1,14 @@
 # Insights Schema Changelog
 
+## [v0.0.12](https://github.com/pbv-public/insights/releases/tag/v0.0.12) on 2024-May-16
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.11...v0.0.12?expand=1)
+> * Version Checksums: Functional=65aa09038155ebe0da01cf003c14ebb6 Full=004f27c714b26093898accbdea533e60
+
+- added `is_speedup` shot property
+- added `speedup_percentage` to each players' stats
+- added `resets_percentage` to each players' stats
+
+-------------------------------------
 ## [v0.0.11](https://github.com/pbv-public/insights/releases/tag/v0.0.11) on 2024-May-03
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.10...v0.0.11?expand=1)
 > * Version Checksums: Functional=113684b54ca1aa73908dab36e9068b74 Full=960ee64bad2bd4c612ac45c0c488cfbb

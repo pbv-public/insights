@@ -126,6 +126,11 @@
       "description": "The percentage of serves where the player's team won the rally.",
       "title": "Percentage"
     },
+    "reset_percentage": {
+      "$ref": "/types/percentage",
+      "description": "The percentage of attempted reset shots out of the total potential reset opportunities. Omitted if there were no eligible reset opportunities.",
+      "title": "Percentage"
+    },
     "return_stats": {
       "additionalProperties": false,
       "description": "Stats about returns. Omitted if the player did not hit any returns.",
@@ -510,6 +515,11 @@
       ],
       "title": "Shot Zones",
       "type": "object"
+    },
+    "speedup_percentage": {
+      "$ref": "/types/percentage",
+      "description": "The percentage of attempted speedup shots out of the total eligible speedup attempts. A shot is eligible as a speedup if it is taken when all players are near the kitchen. Omitted if there were no eligible speedup opportunities.",
+      "title": "Percentage"
     },
     "team": {
       "description": "The team to which the player belongs.",
