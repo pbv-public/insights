@@ -1,0 +1,7 @@
+{
+  "$id": "/types/encoded_positions",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Scaled, base64 encoded integers between [0,127] representing the player's\nposition on the x or y dimension of the court.\n\nTo decode the array back to a list of integers in Python:\n`value_list = [value for value in base64.b64decode(xs_encoded)]`",
+  "title": "Encoded Positions",
+  "type": "string"
+}

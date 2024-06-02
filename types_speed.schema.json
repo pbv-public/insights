@@ -1,0 +1,9 @@
+{
+  "$id": "/types/speed",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The speed in mph. This accounts the combined velocity in each of the x, y and z dimensions.",
+  "maximum": 99,
+  "minimum": 0,
+  "title": "Speed",
+  "type": "number"
+}

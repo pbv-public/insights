@@ -1,0 +1,15 @@
+{
+  "$id": "/events/zone",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Describes the place something is in:\n* deep - in the deep zone (between 39 and 44 feet deep in the court)\n* mid - in the mid zone (between 34 and 39 feet deep in the court)\n* short - in the short zone (between 29 and 34 feet deep in the court)\n* kitchen - in the kitchen zone (between 22 and 29 feet deep in the court)\n* net - on the net\n* out - out of bounds",
+  "enum": [
+    "deep",
+    "mid",
+    "short",
+    "kitchen",
+    "net",
+    "out"
+  ],
+  "title": "Zone",
+  "type": "string"
+}

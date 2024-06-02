@@ -1,0 +1,8 @@
+{
+  "$id": "/types/video_time",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "some number of milliseconds into a video",
+  "minimum": 0,
+  "title": "Video Milliseconds",
+  "type": "integer"
+}
