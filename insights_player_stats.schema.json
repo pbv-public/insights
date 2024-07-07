@@ -413,109 +413,6 @@
       },
       "type": "object"
     },
-    "shot_zones": {
-      "additionalProperties": false,
-      "properties": {
-        "returns": {
-          "additionalProperties": false,
-          "description": "how often returns land in various zones",
-          "properties": {
-            "deep": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed deep in the opponents court",
-              "title": "Count"
-            },
-            "kitchen": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed in the opponents kitchen",
-              "title": "Count"
-            },
-            "mid": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed in the transition zone in the opponents court",
-              "title": "Count"
-            },
-            "net": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
-              "title": "Count"
-            },
-            "out": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball hit outside the court (fault)",
-              "title": "Count"
-            },
-            "short": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed short in the opponents court",
-              "title": "Count"
-            }
-          },
-          "required": [
-            "deep",
-            "mid",
-            "short",
-            "kitchen",
-            "net",
-            "out"
-          ],
-          "title": "Zone Stats",
-          "type": "object"
-        },
-        "serves": {
-          "additionalProperties": false,
-          "description": "how often serves land in various zones",
-          "properties": {
-            "deep": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed deep in the opponents court",
-              "title": "Count"
-            },
-            "kitchen": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed in the opponents kitchen",
-              "title": "Count"
-            },
-            "mid": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed in the transition zone in the opponents court",
-              "title": "Count"
-            },
-            "net": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball hit the net (fault); excludes balls which touched the net but rolled or bounced over",
-              "title": "Count"
-            },
-            "out": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball hit outside the court (fault)",
-              "title": "Count"
-            },
-            "short": {
-              "$ref": "/types/count",
-              "description": "the number of times the ball landed short in the opponents court",
-              "title": "Count"
-            }
-          },
-          "required": [
-            "deep",
-            "mid",
-            "short",
-            "kitchen",
-            "net",
-            "out"
-          ],
-          "title": "Zone Stats",
-          "type": "object"
-        }
-      },
-      "required": [
-        "serves",
-        "returns"
-      ],
-      "title": "Shot Zones",
-      "type": "object"
-    },
     "speedup_percentage": {
       "$ref": "/types/percentage",
       "description": "The percentage of attempted speedup shots out of the total eligible speedup attempts. A shot is eligible as a speedup if it is taken when all players are near the kitchen. Omitted if there were no eligible speedup opportunities.",
@@ -691,7 +588,6 @@
     "left_side_percentage",
     "role_stats",
     "total_team_shot_percentage",
-    "shot_zones",
     "ball_directions",
     "court_coverage"
   ],
