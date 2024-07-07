@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.13](https://github.com/pbv-public/insights/releases/tag/v0.0.13) on 2024-Jul-07
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.12...v0.0.13?expand=1)
+> * Version Checksums: Functional=f249d9582ff350b9365fb164d65bef20 Full=f4d2b8c72564a926bcb6e10553130a22
+
+- removed unnecessary `shot_zones` from `player_stats`
+
+-------------------------------------
 ## [v0.0.12](https://github.com/pbv-public/insights/releases/tag/v0.0.12) on 2024-May-16
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.11...v0.0.12?expand=1)
 > * Version Checksums: Functional=65aa09038155ebe0da01cf003c14ebb6 Full=004f27c714b26093898accbdea533e60
