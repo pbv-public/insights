@@ -14,23 +14,56 @@
         "description": "a section of the video that stands out",
         "else": {
           "else": {
+            "else": {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "long_rally"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "rally_idx": {
+                    "description": "which rally in the video this shot occurs (0-indexed)",
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "rally_idx"
+                ]
+              }
+            },
             "if": {
               "properties": {
                 "kind": {
-                  "const": "long_rally"
+                  "const": "hands_battle"
                 }
               }
             },
             "then": {
               "properties": {
                 "rally_idx": {
-                  "description": "which rally in the video this is (0-indexed)",
+                  "description": "which rally in the video this shot occurs (0-indexed)",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "shot_end_idx": {
+                  "description": "the final shot index in the range, inclusive (0-indexed)",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "shot_start_idx": {
+                  "description": "the shot index in which the initiating shot occurred (0-indexed)",
                   "minimum": 0,
                   "type": "integer"
                 }
               },
               "required": [
-                "rally_idx"
+                "rally_idx",
+                "shot_start_idx",
+                "shot_end_idx"
               ]
             }
           },
@@ -77,6 +110,7 @@
             "enum": [
               "atp",
               "erne",
+              "hands_battle",
               "long_rally"
             ],
             "type": "string"
@@ -144,7 +178,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "1.0.1",
+      "const": "1.0.2",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
