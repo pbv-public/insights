@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.14](https://github.com/pbv-public/insights/releases/tag/v0.0.14) on 2024-Jul-26
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.13...v0.0.14?expand=1)
+> * Version Checksums: Functional=d28c0f4736bca8349ff15a21f3b2025e Full=709a23c5adfc60e1832358b622d9160e
+
+- added the `poach` highlight type, same fields as the `shot` one
+
+-------------------------------------
 ## [v0.0.13](https://github.com/pbv-public/insights/releases/tag/v0.0.13) on 2024-Jul-07
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.12...v0.0.13?expand=1)
 > * Version Checksums: Functional=f249d9582ff350b9365fb164d65bef20 Full=f4d2b8c72564a926bcb6e10553130a22
