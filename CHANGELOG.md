@@ -1,5 +1,14 @@
 # Insights Schema Changelog
 
+## [v0.0.15](https://github.com/pbv-public/insights/releases/tag/v0.0.15) on 2024-Aug-21
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.14...v0.0.15?expand=1)
+> * Version Checksums: Functional=3a357194b183ae1f16827ecaa1e23d7a Full=d18e9abf0551bad5e88ad86fdaaa831b
+
+* added new highlight type, "sequence", with a more complex schema. Eventually
+  this new kind should subsume and obsolete all the others,
+  as it coalesces interesting moments into longer sequences.
+
+-------------------------------------
 ## [v0.0.14](https://github.com/pbv-public/insights/releases/tag/v0.0.14) on 2024-Jul-26
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.13...v0.0.14?expand=1)
 > * Version Checksums: Functional=d28c0f4736bca8349ff15a21f3b2025e Full=709a23c5adfc60e1832358b622d9160e
