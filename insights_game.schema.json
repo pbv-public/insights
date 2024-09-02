@@ -2,303 +2,28 @@
   "$id": "/insights/game",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
-  "description": "Various insights about the game.",
+  "description": "Various insights about the game for displaying in the web app.",
   "properties": {
-    "game_stats": {
-      "$ref": "/insights/game_stats",
-      "description": "Contains statistics about the game as a whole.",
-      "title": "Game Stats"
+    "game_data": {
+      "$ref": "/insights/game_data",
+      "description": "Contains data about the game overall.",
+      "title": "Game Data"
     },
     "highlights": {
+      "description": "A list of the noteworthy exchanges within the game.",
       "items": {
+        "$ref": "/insights/highlight",
         "description": "a section of the video that stands out",
-        "else": {
-          "else": {
-            "else": {
-              "else": {
-                "if": {
-                  "properties": {
-                    "kind": {
-                      "const": "sequence"
-                    }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "events": {
-                      "description": "specific highlighted events",
-                      "items": {
-                        "else": {
-                          "else": {
-                            "if": {
-                              "properties": {
-                                "kind": {
-                                  "const": "shot"
-                                }
-                              }
-                            },
-                            "then": {
-                              "properties": {
-                                "shot_type": {
-                                  "description": "- smash: an overhead or similar shot where the ball goes from high to low (no upward motion)\n- lob: a shot with a relatively high peak\n- dink: a shot that would land in or near the kitchen and which was hit from near the kitchen\n- drop: a shot that would land in or near the kitchen and was hit from the transition zone or deeper\n- drive: a shot that would land deep if not stopped by an opponent's paddle, opponent's body, or the net (and doesn't fall into an earlier categorization)\n- atp: an around-the-post shot, where the ball is hit outside the sideline and around the net post instead of over the net\n- erne: a shot hit from outside the sideline by the kitchen (based on when the player's feet first touch after a volley)\n- tweener: a shot where the ball is hit as it passes through the hitter's own legs\n\nOmitted if we can't confidently determine a shot type based on the ball's trajectory and other characteristics.",
-                                  "enum": [
-                                    "smash",
-                                    "lob",
-                                    "dink",
-                                    "drop",
-                                    "drive",
-                                    "atp",
-                                    "erne",
-                                    "tweener"
-                                  ],
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          },
-                          "if": {
-                            "properties": {
-                              "kind": {
-                                "const": "long_battle"
-                              }
-                            }
-                          },
-                          "then": {
-                            "properties": {
-                              "end_shot_idx": {
-                                "description": "the shot number in the rally (0-indexed)",
-                                "minimum": 0,
-                                "type": "integer"
-                              }
-                            },
-                            "required": [
-                              "end_shot_idx"
-                            ]
-                          }
-                        },
-                        "if": {
-                          "properties": {
-                            "kind": {
-                              "const": "firefight"
-                            }
-                          }
-                        },
-                        "properties": {
-                          "kind": {
-                            "enum": [
-                              "firefight",
-                              "long_battle",
-                              "passing",
-                              "poach",
-                              "shot"
-                            ],
-                            "type": "string"
-                          },
-                          "ms": {
-                            "$ref": "/types/video_time",
-                            "description": "when in the original video the event happens",
-                            "title": "Video Milliseconds"
-                          },
-                          "score": {
-                            "description": "An absolute measure of quality, can go above 1",
-                            "minimum": 0,
-                            "title": "Highlight/Highlighted Event Score",
-                            "type": "number"
-                          },
-                          "shot_idx": {
-                            "description": "the shot number in the rally (0-indexed)",
-                            "minimum": 0,
-                            "type": "integer"
-                          }
-                        },
-                        "required": [
-                          "shot_idx",
-                          "score",
-                          "ms",
-                          "kind"
-                        ],
-                        "then": {
-                          "properties": {
-                            "end_shot_idx": {
-                              "description": "the shot number in the rally (0-indexed)",
-                              "minimum": 0,
-                              "type": "integer"
-                            }
-                          },
-                          "required": [
-                            "end_shot_idx"
-                          ]
-                        },
-                        "type": "object",
-                        "unevaluatedProperties": false
-                      },
-                      "type": "array"
-                    },
-                    "rally_ending": {
-                      "type": "boolean"
-                    },
-                    "short_description": {
-                      "description": "a short description of the highlight",
-                      "type": "string"
-                    },
-                    "shot_end_idx": {
-                      "description": "the final shot index in the range, inclusive (0-indexed)",
-                      "minimum": 0,
-                      "type": "integer"
-                    },
-                    "shot_start_idx": {
-                      "description": "initiating shot of the highlight, can be just a mistake",
-                      "minimum": 0,
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "shot_start_idx",
-                    "shot_end_idx",
-                    "rally_ending",
-                    "short_description",
-                    "events"
-                  ]
-                }
-              },
-              "if": {
-                "properties": {
-                  "kind": {
-                    "const": "poach"
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "shot_idx": {
-                    "description": "the shot number in the rally (0-indexed)",
-                    "minimum": 0,
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "shot_idx"
-                ]
-              }
-            },
-            "if": {
-              "properties": {
-                "kind": {
-                  "const": "hands_battle"
-                }
-              }
-            },
-            "then": {
-              "properties": {
-                "shot_end_idx": {
-                  "description": "the final shot index in the range, inclusive (0-indexed)",
-                  "minimum": 0,
-                  "type": "integer"
-                },
-                "shot_start_idx": {
-                  "description": "the shot index in which the initiating shot occurred (0-indexed)",
-                  "minimum": 0,
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "shot_start_idx",
-                "shot_end_idx"
-              ]
-            }
-          },
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "erne"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "shot_idx": {
-                "description": "the shot number in the rally (0-indexed)",
-                "minimum": 0,
-                "type": "integer"
-              }
-            },
-            "required": [
-              "shot_idx"
-            ]
-          }
-        },
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "atp"
-            }
-          }
-        },
-        "properties": {
-          "e": {
-            "$ref": "/types/video_time",
-            "description": "when in the original video the highlight ends",
-            "title": "Video Milliseconds"
-          },
-          "kind": {
-            "enum": [
-              "atp",
-              "erne",
-              "hands_battle",
-              "long_rally",
-              "poach",
-              "sequence"
-            ],
-            "type": "string"
-          },
-          "rally_idx": {
-            "description": "which rally in the video this shot occurs (0-indexed)",
-            "minimum": 0,
-            "type": "integer"
-          },
-          "s": {
-            "$ref": "/types/video_time",
-            "description": "when in the original video the highlight starts",
-            "title": "Video Milliseconds"
-          },
-          "score": {
-            "description": "An absolute measure of quality, can go above 1",
-            "minimum": 0,
-            "title": "Highlight/Highlighted Event Score",
-            "type": "number"
-          }
-        },
-        "required": [
-          "s",
-          "e",
-          "score",
-          "rally_idx",
-          "kind"
-        ],
-        "then": {
-          "properties": {
-            "shot_idx": {
-              "description": "the shot number in the rally (0-indexed)",
-              "minimum": 0,
-              "type": "integer"
-            }
-          },
-          "required": [
-            "shot_idx"
-          ]
-        },
-        "title": "Highlight",
-        "type": "object",
-        "unevaluatedProperties": false
+        "title": "Highlight"
       },
       "type": "array"
     },
-    "player_stats": {
-      "description": "each player's stats",
+    "player_data": {
+      "description": "Each player's data over the whole game for the web app.",
       "items": {
-        "$ref": "/insights/player_stats",
-        "description": "Contains player-specific stats over the whole game.",
-        "title": "Player Stats"
+        "$ref": "/insights/player_data",
+        "description": "Contains player-specific data over the whole game for the web app.",
+        "title": "Player Data"
       },
       "maxItems": 4,
       "minItems": 4,
@@ -307,26 +32,82 @@
     "rallies": {
       "description": "An ordered list of the rallies within the game.",
       "items": {
-        "$ref": "/events/rally",
-        "title": "Rally"
+        "additionalProperties": false,
+        "properties": {
+          "end_ms": {
+            "$ref": "/types/video_time",
+            "description": "The end time of the rally (milliseconds).",
+            "title": "Video Milliseconds"
+          },
+          "players": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "ms_to_kitchen": {
+                  "description": "How long it took this player to reach the kitchen in milliseconds. Omitted if they did not make it to the kitchen.",
+                  "type": "integer"
+                },
+                "started_on_left_side": {
+                  "description": "`true` if this player started on the left side",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "started_on_left_side"
+              ],
+              "type": "object"
+            },
+            "maxItems": 4,
+            "minItems": 4,
+            "title": "Rally Player Positions",
+            "type": "array"
+          },
+          "shots": {
+            "description": "The sequence of shots during this rally.",
+            "items": {
+              "$ref": "/insights/shot",
+              "title": "Shot"
+            },
+            "type": "array"
+          },
+          "start_ms": {
+            "$ref": "/types/video_time",
+            "description": "The start time of the rally (milliseconds).",
+            "title": "Video Milliseconds"
+          },
+          "winning_team": {
+            "description": "Which team won the rally (team 0 or 1)",
+            "maximum": 1,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start_ms",
+          "end_ms",
+          "players",
+          "shots"
+        ],
+        "title": "Rally",
+        "type": "object"
       },
       "minItems": 1,
       "type": "array"
     },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.15",
+      "const": "0.0.16",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
   },
   "required": [
     "version",
-    "game_stats",
+    "game_data",
     "highlights",
-    "player_stats",
+    "player_data",
     "rallies"
   ],
-  "title": "Game Insights",
+  "title": "Insights",
   "type": "object"
 }

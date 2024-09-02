@@ -1,5 +1,16 @@
 # Insights Schema Changelog
 
+## [v0.0.16](https://github.com/pbv-public/insights/releases/tag/v0.0.16) on 2024-Sep-02
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.15...v0.0.16?expand=1)
+> * Version Checksums: Functional=4fb2e9d06f1bafc1a116c5135e300579 Full=93bb77fb9b27fe84cd5960f96f3314e2
+
+- transitioned insights to more purposeful app use
+- `rallies` now contains a list of `shots` instead of a list of `moments`
+- renamed `game_stats` to `game_data`
+- renamed `player_stats` to `player_data`
+- `player_data` now contains far fewer key-value pairs
+
+-------------------------------------
 ## [v0.0.15](https://github.com/pbv-public/insights/releases/tag/v0.0.15) on 2024-Aug-21
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.14...v0.0.15?expand=1)
 > * Version Checksums: Functional=3a357194b183ae1f16827ecaa1e23d7a Full=d18e9abf0551bad5e88ad86fdaaa831b

@@ -1,5 +1,5 @@
 {
-  "$id": "/events/shot",
+  "$id": "/insights/shot",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
@@ -9,7 +9,7 @@
       "properties": {
         "faults": {
           "additionalProperties": false,
-          "description": "A fault is a type of error, that violates the rules of the game, thus ending the rally. Omitted if there were no faults detected. If this field is present but `is_last_shot` is false, it means play continued despite the fault (i.e., either players overlooked a fault or the AI detected a fault incorrectly).",
+          "description": "A fault is a type of error, that violates the rules of the game, thus ending the rally. Omitted if there were no faults detected. If this field is present but `is_final` is false, it means play continued despite the fault (i.e., either players overlooked a fault or the AI detected a fault incorrectly).",
           "properties": {
             "excess_bounce": {
               "description": "`true` if the ball bounced more than once before being hit, `false` if the ball only bounced once, omitted if unknown.",
@@ -25,7 +25,7 @@
             },
             "out": {
               "additionalProperties": false,
-              "description": "Set if the ball was *traveling out* or *landed out*. Omitted otherwise.\n\n- if this is present but `is_last_shot` is false, it means your opponent hit your ball even though it was going out\n- if `is_last_shot` is true, it means the rally ended because your shot was out",
+              "description": "Set if the ball was *traveling out* or *landed out*. Omitted otherwise.\n\n- if this is present but `is_final` is false, it means your opponent hit your ball even though it was going out\n- if `is_final` is true, it means the rally ended because your shot was out",
               "properties": {
                 "far_side": {
                   "description": "true if ball was going out to the hitter's far sideline, otherwise omitted",
