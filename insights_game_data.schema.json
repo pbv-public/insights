@@ -1,8 +1,8 @@
 {
-  "$id": "/insights/game_stats",
+  "$id": "/insights/game_data",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
-  "description": "Contains statistics about the game as a whole.",
+  "description": "Contains data about the game overall.",
   "properties": {
     "avg_shots": {
       "description": "Represents the average number of shots per rally.",
@@ -84,6 +84,6 @@
     "longest_rally",
     "team_percentage_to_kitchen"
   ],
-  "title": "Game Stats",
+  "title": "Game Data",
   "type": "object"
 }

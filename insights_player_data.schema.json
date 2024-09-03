@@ -1,0 +1,49 @@
+{
+  "$id": "/insights/player_data",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Contains player-specific data over the whole game for the web app.",
+  "properties": {
+    "court_coverage": {
+      "$ref": "/insights/court_coverage",
+      "description": "Categorizes stats about a players court coverage across all rallies.",
+      "title": "Court Coverage"
+    },
+    "left_side_percentage": {
+      "$ref": "/types/percentage",
+      "description": "The percentage of time when this player was to the left of their partner.",
+      "title": "Percentage"
+    },
+    "role_data": {
+      "$ref": "/insights/role_data",
+      "description": "data about this player in each serving and receiving role",
+      "title": "Role Data"
+    },
+    "shot_count": {
+      "$ref": "/types/count",
+      "description": "The total number of shots by the player.",
+      "title": "Count"
+    },
+    "team": {
+      "description": "The team to which the player belongs.",
+      "maximum": 1,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "total_team_shot_percentage": {
+      "$ref": "/types/percentage",
+      "description": "The percentage of total team shots taken by the player.",
+      "title": "Percentage"
+    }
+  },
+  "required": [
+    "team",
+    "shot_count",
+    "total_team_shot_percentage",
+    "left_side_percentage",
+    "role_data",
+    "court_coverage"
+  ],
+  "title": "Player Data",
+  "type": "object"
+}
