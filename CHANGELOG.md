@@ -1,5 +1,14 @@
 # Insights Schema Changelog
 
+## [v0.0.17](https://github.com/pbv-public/insights/releases/tag/v0.0.17) on 2024-Sep-09
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.16...v0.0.17?expand=1)
+> * Version Checksums: Functional=26409b227f40a459fbb6210ffdd00b04 Full=2054c1ad37c2ec10ca362c99a5a23ad7
+
+- Errors are now enum-valued: potential vs exploited.
+- Outs are simplified/normalized into a enum that avoids contradictory values.
+- Descriptions of errors are updated for the upcoming simplified heuristics
+
+-------------------------------------
 ## [v0.0.16](https://github.com/pbv-public/insights/releases/tag/v0.0.16) on 2024-Sep-02
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.15...v0.0.16?expand=1)
 > * Version Checksums: Functional=4fb2e9d06f1bafc1a116c5135e300579 Full=93bb77fb9b27fe84cd5960f96f3314e2

@@ -7,82 +7,77 @@
       "additionalProperties": false,
       "description": "Grouping for detected errors resulting from this shot. Omitted if there are no discernible errors.",
       "properties": {
+        "dead_dink": {
+          "description": "Set as `exploited` if we detect a definite dead dink that was exploited, otherwise omitted (we do not currently detect potential dead dinks). To be considered a dead dink, the shot_type must be a dink or drop and the opponent's return shot must be a groundstroke that is hit above the net height.",
+          "enum": [
+            "exploited",
+            "potential"
+          ]
+        },
         "faults": {
           "additionalProperties": false,
-          "description": "A fault is a type of error, that violates the rules of the game, thus ending the rally. Omitted if there were no faults detected. If this field is present but `is_final` is false, it means play continued despite the fault (i.e., either players overlooked a fault or the AI detected a fault incorrectly).",
+          "description": "A fault is a type of error that violates the rules of the game, thus ending the rally. This includes both actual and potential faults (that were saved by the opponent, or somehow overlooked and didn't end the rally). Omitted if none were detected. If this field is present but `is_final` is false, it means play continued despite the fault (i.e., either players overlooked a fault or the AI detected a potential fault that was not called).",
           "properties": {
             "excess_bounce": {
               "description": "`true` if the ball bounced more than once before being hit, `false` if the ball only bounced once, omitted if unknown.",
               "type": "boolean"
             },
             "kitchen": {
-              "description": "`true` if player stepped in the kitchen while volleying, `false` if the did not, omitted if unknown.",
+              "description": "`true` if player stepped in the kitchen while volleying, `false` if they did not, omitted if unknown.",
               "type": "boolean"
             },
             "net": {
-              "description": "`true` if the ball was stopped by the net, `false` if the ball did clear the net (even if it touched), omitted if unknown.",
+              "description": "`true` if the ball was stopped by the net, `false` if the ball did clear the net (even if it touched).",
               "type": "boolean"
             },
             "out": {
               "additionalProperties": false,
-              "description": "Set if the ball was *traveling out* or *landed out*. Omitted otherwise.\n\n- if this is present but `is_final` is false, it means your opponent hit your ball even though it was going out\n- if `is_final` is true, it means the rally ended because your shot was out",
+              "description": "Information about the ball potentially or actually going out.",
               "properties": {
-                "far_side": {
-                  "description": "true if ball was going out to the hitter's far sideline, otherwise omitted",
-                  "type": "boolean"
+                "direction": {
+                  "description": "The direction the ball was (potentially or actually) going out.",
+                  "enum": [
+                    "left",
+                    "right",
+                    "long"
+                  ]
                 },
-                "left": {
-                  "description": "true if ball was going out to the hitter's left, otherwise omitted",
-                  "type": "boolean"
+                "outcome": {
+                  "description": "Whether the shot actually landed out, or was intercepted (erroneously) by an opponent.",
+                  "enum": [
+                    "landed",
+                    "intercepted"
+                  ]
                 },
-                "long": {
-                  "description": "true if ball was going out long, otherwise omitted",
-                  "type": "boolean"
-                },
-                "near_side": {
-                  "description": "true if ball going was out to the hitter's near sideline, otherwise omitted",
-                  "type": "boolean"
-                },
-                "right": {
-                  "description": "true if ball was going out to the hitter's right, otherwise omitted",
-                  "type": "boolean"
+                "side": {
+                  "description": "The side of the court the ball was (potentially or actually) going out if the direction is lateral (left or right). Omitted if not going out laterally.",
+                  "enum": [
+                    "near",
+                    "far"
+                  ]
                 }
               },
               "required": [
-                "left",
-                "right",
-                "near_side",
-                "far_side",
-                "long"
+                "outcome",
+                "direction"
               ],
               "type": "object"
             },
             "paddle_hit_net": {
-              "description": "`true` if paddle hit the net, `false if the paddle did not hit the net`, omitted if unknown.",
+              "description": "`true` if paddle hit the net, `false` if the paddle did not hit the net, omitted if unknown.",
               "type": "boolean"
             }
           },
-          "required": [
-            "paddle_hit_net",
-            "kitchen",
-            "net",
-            "excess_bounce"
-          ],
           "type": "object"
         },
-        "is_dead_dink": {
-          "description": "`true` if the `shot_type` is a dink and the ball's resulting bounce ends high enough to be considered easy to attack. If the opposing player hits a ball that would have bounced above the top of the net, this field will be set to `false`.",
-          "type": "boolean"
-        },
-        "is_popup": {
-          "description": "`true` if the following conditions are met:\n\n- This shot is hit near the kitchen line or while the player is standing in the kitchen.\n- The ball is hit in an upward trajectory, rising from below the net to above the net.\n- The ball does not bounce on the ground before being hit by the opposing player.\n\nElse, the field is `false`.",
-          "type": "boolean"
+        "popup": {
+          "description": "Set if we detect a definite or potential popup, which is currently defined as a dink (or a drop) crossing the opposite kitchen line at 1 ft above the net height.\n\n`exploited` if it was exploited by the opponent team. `potential` if it was a popup that was not exploited.",
+          "enum": [
+            "exploited",
+            "potential"
+          ]
         }
       },
-      "required": [
-        "is_dead_dink",
-        "is_popup"
-      ],
       "type": "object"
     },
     "is_final": {
