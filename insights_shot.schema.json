@@ -66,6 +66,10 @@
             "paddle_hit_net": {
               "description": "`true` if paddle hit the net, `false` if the paddle did not hit the net, omitted if unknown.",
               "type": "boolean"
+            },
+            "short": {
+              "description": "`true` if the ball is hit by the player to land on the same court side, before the net, but not out. `false` if the ball didn't land on the same court side, omitted if unknown.",
+              "type": "boolean"
             }
           },
           "type": "object"

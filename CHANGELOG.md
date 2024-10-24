@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.18](https://github.com/pbv-public/insights/releases/tag/v0.0.18) on 2024-Oct-24
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.17...v0.0.18?expand=1)
+> * Version Checksums: Functional=3bcee1a2cb27e8b63eea4a3e29b79b35 Full=862225a86a48f93bf7939f58db0f5f74
+
+- New fault type: `short`, when the ball fails to cross the net and ends on the server's side.
+
+-------------------------------------
 ## [v0.0.17](https://github.com/pbv-public/insights/releases/tag/v0.0.17) on 2024-Sep-09
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.16...v0.0.17?expand=1)
 > * Version Checksums: Functional=26409b227f40a459fbb6210ffdd00b04 Full=2054c1ad37c2ec10ca362c99a5a23ad7
