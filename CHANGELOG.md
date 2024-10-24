@@ -1,5 +1,15 @@
 # Insights Schema Changelog
 
+## [v2.0.1](https://github.com/pbv-public/insights/releases/tag/v2.0.1) on 2024-Oct-24
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.0.0...v2.0.1?expand=1)
+> * Version Checksums: Functional=3bcee1a2cb27e8b63eea4a3e29b79b35 Full=862225a86a48f93bf7939f58db0f5f74
+
+- New fault type: `short`, when the ball fails to cross the net and ends on the server's side.
+- Errors are now enum-valued: potential vs exploited.
+- Outs are simplified/normalized into a enum that avoids contradictory values.
+- Descriptions of errors are updated for the upcoming simplified heuristics
+
+-------------------------------------
 ## [v2.0.0](https://github.com/pbv-public/insights/releases/tag/v2.0.0) on 2024-Sep-03
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v1.0.2...v2.0.0?expand=1)
 > * Version Checksums: Functional=4fb2e9d06f1bafc1a116c5135e300579 Full=93bb77fb9b27fe84cd5960f96f3314e2
