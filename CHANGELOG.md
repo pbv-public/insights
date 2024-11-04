@@ -1,5 +1,13 @@
 # Insights Schema Changelog
 
+## [v2.0.2](https://github.com/pbv-public/insights/releases/tag/v2.0.2) on 2024-Nov-04
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.0.1...v2.0.2?expand=1)
+> * Version Checksums: Functional=930d478af5b91cae8ed3692e6b489b21 Full=b0b782c0afabfe613e411ae3f1100f9b
+
+- added `session` to indicate game vs. drill and how many participants
+- added optional `is_ball_machine` in `player_data`
+
+-------------------------------------
 ## [v2.0.1](https://github.com/pbv-public/insights/releases/tag/v2.0.1) on 2024-Oct-24
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.0.0...v2.0.1?expand=1)
 > * Version Checksums: Functional=3bcee1a2cb27e8b63eea4a3e29b79b35 Full=862225a86a48f93bf7939f58db0f5f74

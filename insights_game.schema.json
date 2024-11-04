@@ -19,18 +19,25 @@
       "type": "array"
     },
     "player_data": {
-      "description": "Each player's data over the whole game for the web app.",
+      "description": "Each player's data over the whole game for the web app.  If the player's location is unknown, the value for that player will be null.",
       "items": {
-        "$ref": "/insights/player_data",
-        "description": "Contains player-specific data over the whole game for the web app.",
-        "title": "Player Data"
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "$ref": "/insights/player_data",
+            "description": "Contains player-specific data over the whole game for the web app.",
+            "title": "Player Data"
+          }
+        ]
       },
       "maxItems": 4,
       "minItems": 4,
       "type": "array"
     },
     "rallies": {
-      "description": "An ordered list of the rallies within the game.",
+      "description": "An ordered list of the rallies within a singles or doubles game. This structure can also represent a distinct session or drill.",
       "items": {
         "additionalProperties": false,
         "properties": {
@@ -40,22 +47,30 @@
             "title": "Video Milliseconds"
           },
           "players": {
+            "description": "The positional information for players during a rally.  If the player's location is unknown, the value for that player will be null.",
             "items": {
-              "additionalProperties": false,
-              "properties": {
-                "ms_to_kitchen": {
-                  "description": "How long it took this player to reach the kitchen in milliseconds. Omitted if they did not make it to the kitchen.",
-                  "type": "integer"
+              "anyOf": [
+                {
+                  "type": "null"
                 },
-                "started_on_left_side": {
-                  "description": "`true` if this player started on the left side",
-                  "type": "boolean"
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "ms_to_kitchen": {
+                      "description": "How long it took this player to reach the kitchen in milliseconds. Omitted if they did not make it to the kitchen.",
+                      "type": "integer"
+                    },
+                    "started_on_left_side": {
+                      "description": "`true` if this player started on the left side",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "started_on_left_side"
+                  ],
+                  "type": "object"
                 }
-              },
-              "required": [
-                "started_on_left_side"
-              ],
-              "type": "object"
+              ]
             },
             "maxItems": 4,
             "minItems": 4,
@@ -94,9 +109,14 @@
       "minItems": 1,
       "type": "array"
     },
+    "session": {
+      "$ref": "/types/session",
+      "description": "Defines aspects of the session or game being played.",
+      "title": "Session"
+    },
     "version": {
       "$ref": "/types/version",
-      "const": "2.0.1",
+      "const": "2.0.2",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
@@ -104,6 +124,7 @@
   "required": [
     "version",
     "game_data",
+    "session",
     "highlights",
     "player_data",
     "rallies"
