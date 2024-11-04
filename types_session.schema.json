@@ -1,0 +1,27 @@
+{
+  "$id": "/types/session",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Defines aspects of the session or game being played.",
+  "properties": {
+    "num_players": {
+      "description": "The number of players in the session. A player can be a human or a ball machine. Check for the presence of `is_ball_machine` in `player_data`; if it's not present, the player was a human.",
+      "maximum": 4,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "session_type": {
+      "description": "The type of session being played",
+      "enum": [
+        "game",
+        "drill"
+      ]
+    }
+  },
+  "required": [
+    "session_type",
+    "num_players"
+  ],
+  "title": "Session",
+  "type": "object"
+}
