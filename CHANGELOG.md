@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.20](https://github.com/pbv-public/insights/releases/tag/v0.0.20) on 2024-Nov-11
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.19...v0.0.20?expand=1)
+> * Version Checksums: Functional=8cca28e5c390867dcfc758baea9d8d4a Full=97fb1a07dd915cf620ef8a511e29e443
+
+- fix `player_data` type to avoid the problem with the docs
+
+-------------------------------------
 ## [v0.0.19](https://github.com/pbv-public/insights/releases/tag/v0.0.19) on 2024-Nov-04
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.18...v0.0.19?expand=1)
 > * Version Checksums: Functional=930d478af5b91cae8ed3692e6b489b21 Full=b0b782c0afabfe613e411ae3f1100f9b
