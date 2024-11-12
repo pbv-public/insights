@@ -21,8 +21,16 @@
     "player_data": {
       "description": "Each player's data over the whole game for the web app.  If the player's location is unknown, the value for that player will be null.",
       "items": {
-        "$ref": "/insights/player_data",
-        "title": "Player Data"
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "$ref": "/insights/player_data",
+            "description": "Contains player-specific data over the whole game for the web app.",
+            "title": "Player Data"
+          }
+        ]
       },
       "maxItems": 4,
       "minItems": 4,
@@ -108,7 +116,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.20",
+      "const": "0.0.21",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
