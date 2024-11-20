@@ -4,10 +4,6 @@
   "additionalProperties": false,
   "description": "Various insights about the game for displaying in the web app.",
   "properties": {
-    "dummyVersion": {
-      "description": "A dummy field to fix versioning.",
-      "type": "boolean"
-    },
     "game_data": {
       "$ref": "/insights/game_data",
       "description": "Contains data about the game overall.",

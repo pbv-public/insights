@@ -1,6 +1,13 @@
 # Insights Schema Changelog
 
 ## [v2.3.0](https://github.com/pbv-public/insights/releases/tag/v2.3.0) on 2024-Nov-20
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.3.0...v2.3.0?expand=1)
+> * Version Checksums: Functional=930d478af5b91cae8ed3692e6b489b21 Full=b0b782c0afabfe613e411ae3f1100f9b
+
+- Back to the clean version of the schema
+
+-------------------------------------
+## [v2.3.0](https://github.com/pbv-public/insights/releases/tag/v2.3.0) on 2024-Nov-20
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.0.2...v2.3.0?expand=1)
 > * Version Checksums: Functional=5df30212fd212b8189bcd17f96e1a054 Full=b4682f7b86a457592fb79167e6308b2b
 
