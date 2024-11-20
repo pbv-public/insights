@@ -1,0 +1,126 @@
+{
+  "$id": "/insights/role_data",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "data about this player in each serving and receiving role",
+  "properties": {
+    "receiving": {
+      "additionalProperties": false,
+      "description": "data while this player's team was receiving",
+      "properties": {
+        "oneself": {
+          "additionalProperties": false,
+          "description": "data while this player's team was receiving and this player was the receiver",
+          "properties": {
+            "kitchen_arrival": {
+              "$ref": "/types/count",
+              "description": "number of times the player arrived at the kitchen",
+              "title": "Count"
+            },
+            "total": {
+              "$ref": "/types/count",
+              "description": "total number of rallies counted in this category",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "kitchen_arrival",
+            "total"
+          ],
+          "title": "Rally Category Counts",
+          "type": "object"
+        },
+        "partner": {
+          "additionalProperties": false,
+          "description": "data while this player's team was receiving and this player's partner was the receiver",
+          "properties": {
+            "kitchen_arrival": {
+              "$ref": "/types/count",
+              "description": "number of times the player arrived at the kitchen",
+              "title": "Count"
+            },
+            "total": {
+              "$ref": "/types/count",
+              "description": "total number of rallies counted in this category",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "kitchen_arrival",
+            "total"
+          ],
+          "title": "Rally Category Counts",
+          "type": "object"
+        }
+      },
+      "required": [
+        "partner",
+        "oneself"
+      ],
+      "title": "Rally data when Receiving",
+      "type": "object"
+    },
+    "serving": {
+      "additionalProperties": false,
+      "description": "data while this player's team was serving",
+      "properties": {
+        "oneself": {
+          "additionalProperties": false,
+          "description": "data while this player's team was serving and this player was the server",
+          "properties": {
+            "kitchen_arrival": {
+              "$ref": "/types/count",
+              "description": "number of times the player arrived at the kitchen",
+              "title": "Count"
+            },
+            "total": {
+              "$ref": "/types/count",
+              "description": "total number of rallies counted in this category",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "kitchen_arrival",
+            "total"
+          ],
+          "title": "Rally Category Counts",
+          "type": "object"
+        },
+        "partner": {
+          "additionalProperties": false,
+          "description": "data while this player's team was serving and this player's partner was the server",
+          "properties": {
+            "kitchen_arrival": {
+              "$ref": "/types/count",
+              "description": "number of times the player arrived at the kitchen",
+              "title": "Count"
+            },
+            "total": {
+              "$ref": "/types/count",
+              "description": "total number of rallies counted in this category",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "kitchen_arrival",
+            "total"
+          ],
+          "title": "Rally Category Counts",
+          "type": "object"
+        }
+      },
+      "required": [
+        "partner",
+        "oneself"
+      ],
+      "title": "Rally data when Serving",
+      "type": "object"
+    }
+  },
+  "required": [
+    "serving",
+    "receiving"
+  ],
+  "title": "Role Data",
+  "type": "object"
+}

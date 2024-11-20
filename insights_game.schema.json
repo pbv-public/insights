@@ -4,6 +4,10 @@
   "additionalProperties": false,
   "description": "Various insights about the game for displaying in the web app.",
   "properties": {
+    "dummyVersion": {
+      "description": "A dummy field to fix versioning.",
+      "type": "boolean"
+    },
     "game_data": {
       "$ref": "/insights/game_data",
       "description": "Contains data about the game overall.",
@@ -116,7 +120,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "2.0.2",
+      "const": "2.3.0",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
