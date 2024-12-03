@@ -46,6 +46,10 @@
             "description": "The end time of the rally (milliseconds).",
             "title": "Video Milliseconds"
           },
+          "likely_bad": {
+            "description": "If true, this rally is likely bad and should be ignored while computing the ongoing score.",
+            "type": "boolean"
+          },
           "players": {
             "description": "The positional information for players during a rally.  If the player's location is unknown, the value for that player will be null.",
             "items": {
@@ -116,7 +120,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "2.3.0",
+      "const": "2.4.0",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
