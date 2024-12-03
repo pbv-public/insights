@@ -1,5 +1,13 @@
 # Insights Schema Changelog
 
+## [v0.0.22](https://github.com/pbv-public/insights/releases/tag/v0.0.22) on 2024-Dec-03
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.21...v0.0.22?expand=1)
+> * Version Checksums: Functional=8c6827137c0d55e74d409cb6fe0fb007 Full=80733506977ad40ea6ff3ffd8be29547
+
+- Added `likely_bad` attribute to a rally to indicate that it shouldn't be used for calculating running scorie.
+- In general, scoring is available now, so the scores will be reported numerically in `game_outcome`.
+
+-------------------------------------
 ## [v0.0.21](https://github.com/pbv-public/insights/releases/tag/v0.0.21) on 2024-Nov-12
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.20...v0.0.21?expand=1)
 > * Version Checksums: Functional=930d478af5b91cae8ed3692e6b489b21 Full=b0b782c0afabfe613e411ae3f1100f9b
