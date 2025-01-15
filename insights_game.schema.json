@@ -4,6 +4,90 @@
   "additionalProperties": false,
   "description": "Various insights about the game for displaying in the web app.",
   "properties": {
+    "coach_advice": {
+      "description": "Lists of advice for each player.",
+      "items": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "additionalProperties": false,
+            "description": "Advice based on rank of certain features in the distribution of games (how well the player performed in some areas relative to other games).",
+            "properties": {
+              "advice": {
+                "description": "A list of advice for the player to improve their game (ranked by relevance score, starting from the best).",
+                "items": {
+                  "additionalProperties": false,
+                  "description": "Particular advice",
+                  "properties": {
+                    "kind": {
+                      "description": "The statistic in question.",
+                      "enum": [
+                        "serve_quality",
+                        "legal_serve_percentage",
+                        "return_quality",
+                        "third_shot_quality",
+                        "legal_third_shot_percentage",
+                        "drop_shot_consistency",
+                        "dink_consistency",
+                        "rallies_won_with_resets",
+                        "rallies_won_with_speedups",
+                        "kitchen_arrival_percentage_on_serve"
+                      ],
+                      "type": "string"
+                    },
+                    "method": {
+                      "description": "The method used to compute the CI for the statistic's rank.",
+                      "enum": [
+                        "wilson",
+                        "ranked_avg"
+                      ],
+                      "type": "string"
+                    },
+                    "rank_ci": {
+                      "description": "The confidence interval ([low, high]) of the percentile rank of the player in the distribution of games for this statistic.(\"We're fairly confident that this particular game exhibited a skill at least as good / at least as bad as this % of other games\").  This is useful for plotting/comparison purposes.  Note that the CI width significantly changes with the amount of data available for this particular stat.",
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "relevance": {
+                      "description": "Relevance score indicating how \"interesting\" this advice is (how much of a bad outlier is this particular stat). Higher is better. Calculated from the upper bound of CI, and then slightly weighted (with various weights for different stats) to make the typical advice more interesting.",
+                      "type": "number"
+                    },
+                    "value": {
+                      "description": "The raw value of the statistic in question.",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "relevance",
+                    "kind",
+                    "value",
+                    "rank_ci",
+                    "method"
+                  ],
+                  "title": "Advice",
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "advice"
+            ],
+            "title": "Coach Advice",
+            "type": "object"
+          }
+        ]
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    },
     "game_data": {
       "$ref": "/insights/game_data",
       "description": "Contains data about the game overall.",
@@ -120,7 +204,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "2.4.0",
+      "const": "2.5.0",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
@@ -131,7 +215,8 @@
     "session",
     "highlights",
     "player_data",
-    "rallies"
+    "rallies",
+    "coach_advice"
   ],
   "title": "Insights",
   "type": "object"

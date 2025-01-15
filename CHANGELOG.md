@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v2.5.0](https://github.com/pbv-public/insights/releases/tag/v2.5.0) on 2025-Jan-15
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.4.0...v2.5.0?expand=1)
+> * Version Checksums: Functional=9724ecf81c1a14ded5502331cdf7d4ea Full=ae5cd03c59147ffe2430176f3da09848
+
+- Exposed "Coach advice" in the Insights, an array of advice for each player, ordered by their relevance.
+
+-------------------------------------
 ## [v2.4.0](https://github.com/pbv-public/insights/releases/tag/v2.4.0) on 2024-Dec-03
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.3.0...v2.4.0?expand=1)
 > * Version Checksums: Functional=8c6827137c0d55e74d409cb6fe0fb007 Full=80733506977ad40ea6ff3ffd8be29547
