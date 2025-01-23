@@ -65,6 +65,22 @@
       "title": "Longest Rally",
       "type": "object"
     },
+    "min_points": {
+      "description": "Minimal amount of points needed to win, as in \"first to 11\".",
+      "enum": [
+        11,
+        15,
+        21,
+        25
+      ]
+    },
+    "scoring": {
+      "description": "The scoring system most likely used in the game.",
+      "enum": [
+        "side_out",
+        "rally"
+      ]
+    },
     "team_percentage_to_kitchen": {
       "description": "Percent of rallies where all players on a team successfully arrived at the kitchen.",
       "items": {
