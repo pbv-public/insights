@@ -134,6 +134,10 @@
             "description": "If true, this rally is likely bad and should be ignored while computing the ongoing score.",
             "type": "boolean"
           },
+          "likely_correct_score": {
+            "description": "Our scoring algorithm has quite high confidence in the score of this rally. If you need an example of a rally with a specific winner, it's best to pick one of the rallies with `likely_correct_score` set to `true`.",
+            "type": "boolean"
+          },
           "players": {
             "description": "The positional information for players during a rally.  If the player's location is unknown, the value for that player will be null.",
             "items": {
@@ -163,6 +167,16 @@
             "maxItems": 4,
             "minItems": 4,
             "title": "Rally Player Positions",
+            "type": "array"
+          },
+          "running_score": {
+            "description": "The running score of the game. The first element is the score of team 0, and the second element is the score of team 1.",
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "Running Score",
             "type": "array"
           },
           "shots": {
@@ -204,7 +218,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "2.5.0",
+      "const": "2.6.0",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }

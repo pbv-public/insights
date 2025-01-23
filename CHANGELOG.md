@@ -1,5 +1,13 @@
 # Insights Schema Changelog
 
+## [v2.6.0](https://github.com/pbv-public/insights/releases/tag/v2.6.0) on 2025-Jan-23
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.5.0...v2.6.0?expand=1)
+> * Version Checksums: Functional=0b322cd2cf0745aea8ae46ad0859c78b Full=d625ecc9493936cf77728e2e1b6b1522
+
+- Rally scoring is now supported. Game data contains new attributes, `scoring` and `min_points`, that define the scoring rules for the game.
+- New attribute for the rally, running_score, that computes the running score according to the scoring rules chosen.
+
+-------------------------------------
 ## [v2.5.0](https://github.com/pbv-public/insights/releases/tag/v2.5.0) on 2025-Jan-15
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.4.0...v2.5.0?expand=1)
 > * Version Checksums: Functional=9724ecf81c1a14ded5502331cdf7d4ea Full=ae5cd03c59147ffe2430176f3da09848
