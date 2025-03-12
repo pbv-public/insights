@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v2.7.0](https://github.com/pbv-public/insights/releases/tag/v2.7.0) on 2025-Mar-12
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.6.0...v2.7.0?expand=1)
+> * Version Checksums: Functional=b483a45020c6d31b7c782f354e2f8a49 Full=c2a595e98e836f111a87afd94e7272ae
+
+- .running_score and the related properties have been moved to rallies[*].scoring_info.running_score, there's also .server_number there for the doubles games
+
+-------------------------------------
 ## [v2.6.0](https://github.com/pbv-public/insights/releases/tag/v2.6.0) on 2025-Jan-23
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v2.5.0...v2.6.0?expand=1)
 > * Version Checksums: Functional=0b322cd2cf0745aea8ae46ad0859c78b Full=d625ecc9493936cf77728e2e1b6b1522
