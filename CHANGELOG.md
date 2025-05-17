@@ -1,5 +1,16 @@
 # Insights Schema Changelog
 
+## [v0.0.26](https://github.com/pbv-public/insights/releases/tag/v0.0.26) on 2025-May-17
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.25...v0.0.26?expand=1)
+> * Version Checksums: Functional=7eb56e3b1df0f99ed717edcc6cc6a7a2 Full=9096be46e17cf16b981bd2f54497a34a
+
+- Running score properties moved to rallies[*].scoring_info.running_score, with server_number added for doubles games
+- Added start_ms and end_ms timestamps to track shot duration for shots without the resulting_ball_movement
+- Updated popup error definition with more specific criteria
+- Changed description of average_x_coverage_percentage to clarify it's only relevant for doubles games, made it optional
+- Added corrected boolean flag to worldPosition3D to indicate post-CV corrections
+
+-------------------------------------
 ## [v0.0.25](https://github.com/pbv-public/insights/releases/tag/v0.0.25) on 2025-Mar-12
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.24...v0.0.25?expand=1)
 > * Version Checksums: Functional=b483a45020c6d31b7c782f354e2f8a49 Full=c2a595e98e836f111a87afd94e7272ae

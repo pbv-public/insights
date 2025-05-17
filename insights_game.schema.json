@@ -233,7 +233,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.25",
+      "const": "0.0.26",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
