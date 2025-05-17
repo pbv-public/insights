@@ -3,6 +3,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
+    "end_ms": {
+      "description": "The time in milliseconds since the start of the video when the shot ended.",
+      "type": "integer"
+    },
     "errors": {
       "additionalProperties": false,
       "description": "Grouping for detected errors resulting from this shot. Omitted if there are no discernible errors.",
@@ -75,7 +79,7 @@
           "type": "object"
         },
         "popup": {
-          "description": "Set if we detect a definite or potential popup, which is currently defined as a dink (or a drop) crossing the opposite kitchen line at 1 ft above the net height.\n\n`exploited` if it was exploited by the opponent team. `potential` if it was a popup that was not exploited.",
+          "description": "Set if we detect a definite or potential popup, which is currently\ndefined as: either the shot popping up more than 3.5 feet from the strike point,\nor crossing the net at 2.2 feet above while popping up at least 2.6 feet from\nthe strike point.\n\n`exploited` if it was exploited by the opponent team. `potential` if it was a popup that was not exploited. (Determined by whether it was volleyed)",
           "enum": [
             "exploited",
             "potential"
@@ -332,6 +336,10 @@
       ],
       "type": "string"
     },
+    "start_ms": {
+      "description": "The time in milliseconds since the start of the video when the shot started.",
+      "type": "integer"
+    },
     "stroke_side": {
       "description": "The side of the body the stroke was made on. Omitted if unknown.",
       "enum": [
@@ -369,6 +377,8 @@
   "required": [
     "player_id",
     "quality",
+    "start_ms",
+    "end_ms",
     "is_final"
   ],
   "title": "Shot",

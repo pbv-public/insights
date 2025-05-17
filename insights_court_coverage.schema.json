@@ -6,7 +6,7 @@
   "properties": {
     "average_x_coverage_percentage": {
       "$ref": "/types/percentage",
-      "description": "The average amount of time each player spent on the left side of the court.",
+      "description": "The average percentage of court width coverage assigned to the player during rallies, based on their positioning relative to their partner. It's only relevant in doubles; not included for singles games.",
       "title": "Percentage"
     },
     "heat_map_coordinates": {
@@ -38,7 +38,6 @@
   },
   "required": [
     "total_distance_covered",
-    "average_x_coverage_percentage",
     "heat_map_coordinates"
   ],
   "title": "Court Coverage",

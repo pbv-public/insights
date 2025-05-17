@@ -4,6 +4,10 @@
   "additionalProperties": false,
   "description": "a position in feet relative to the far left court corner",
   "properties": {
+    "corrected": {
+      "description": "true if this position was corrected post-CV",
+      "type": "boolean"
+    },
     "x": {
       "description": "distance along the court's 20ft width (baseline)",
       "type": "number"
