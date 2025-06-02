@@ -1,0 +1,250 @@
+{
+  "$id": "/trends",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Contains player-specific trends data for this video.",
+  "properties": {
+    "data": {
+      "additionalProperties": false,
+      "description": "Summary of a player's stats from one game",
+      "properties": {
+        "flags": {
+          "additionalProperties": false,
+          "description": "Boolean information about the game",
+          "properties": {
+            "won_game": {
+              "description": "Whether the player won the game",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "won_game"
+          ],
+          "type": "object"
+        },
+        "kitchen_arrival_as_serving_side": {
+          "description": "Percent of rallies the player makes it to the kitchen when on the serving side",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "num_rallies": {
+          "description": "How many rallies were in the game",
+          "maximum": 255,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "num_rallies_won": {
+          "description": "How many rallies were won",
+          "maximum": 255,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "ratings": {
+          "additionalProperties": false,
+          "description": "A rating of the player's skill in various categories based on this one game",
+          "properties": {
+            "agility": {
+              "description": "How efficiently and effectively the player moved",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "consistency": {
+              "description": "How well the player avoids unforced errors",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "defense": {
+              "description": "Ability to neutralize attacks",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "offense": {
+              "description": "Ability to apply pressure",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "return": {
+              "description": "Return of serve ability",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "serve": {
+              "description": "Serve ability",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "serve",
+            "return",
+            "offense",
+            "defense",
+            "agility",
+            "consistency"
+          ],
+          "type": "object"
+        },
+        "return_depth": {
+          "additionalProperties": false,
+          "description": "Proportions of various depths",
+          "properties": {
+            "deep": {
+              "description": "Percent of deep serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "medium": {
+              "description": "Percent of medium serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "net": {
+              "description": "Percent of too net serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "out": {
+              "description": "Percent of too long, short or wide serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "shallow": {
+              "description": "Percent of shallow (but in) serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "out",
+            "net",
+            "shallow",
+            "medium",
+            "deep"
+          ],
+          "type": "object"
+        },
+        "serve_depth": {
+          "additionalProperties": false,
+          "description": "Proportions of various depths",
+          "properties": {
+            "deep": {
+              "description": "Percent of deep serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "medium": {
+              "description": "Percent of medium serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "net": {
+              "description": "Percent of too net serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "out": {
+              "description": "Percent of too long, short or wide serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "shallow": {
+              "description": "Percent of shallow (but in) serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "out",
+            "net",
+            "shallow",
+            "medium",
+            "deep"
+          ],
+          "type": "object"
+        },
+        "serve_speed": {
+          "description": "18 buckets for % of serves at speeds of <15mph, 15-17.5, .., 52.5-55, >=55mph. Zero-indexed: Bucket 0 for <15, buckets i=1 to 16 cover [12.5+2.5i, 15+2.5i) mph; bucket 17 is for >=55.",
+          "items": {
+            "description": "a percentage expressed as a number between 0 and 1",
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "maxItems": 17,
+          "minItems": 17,
+          "type": "array"
+        },
+        "shot_accuracy": {
+          "additionalProperties": false,
+          "properties": {
+            "in": {
+              "description": "Percent of shots that went in",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "net": {
+              "description": "Percent of shots that were stopped by the net (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "out": {
+              "description": "Percent of shots that were out (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "in",
+            "net",
+            "out"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "serve_depth",
+        "return_depth",
+        "serve_speed",
+        "kitchen_arrival_as_serving_side",
+        "shot_accuracy",
+        "flags",
+        "num_rallies",
+        "num_rallies_won",
+        "ratings"
+      ],
+      "type": "object"
+    },
+    "version": {
+      "description": "The version of the trend data (versioning both the schema and the reference distributions for the skills)",
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "data"
+  ],
+  "title": "Trends",
+  "type": "object"
+}

@@ -231,9 +231,14 @@
       "description": "Defines aspects of the session or game being played.",
       "title": "Session"
     },
+    "trends": {
+      "$ref": "/trends",
+      "description": "Contains player-specific trends data for this video.",
+      "title": "Trends"
+    },
     "version": {
       "$ref": "/types/version",
-      "const": "2.9.0",
+      "const": "3.0.0",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
