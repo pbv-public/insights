@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.27](https://github.com/pbv-public/insights/releases/tag/v0.0.27) on 2025-Jun-02
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.26...v0.0.27?expand=1)
+> * Version Checksums: Functional=d4c0ff2080d78309f29dddb1ceb9b438 Full=45c2392114d7552766f960577df50dd0
+
+- Add ratings data structures for players' ratings and their trends
+
+-------------------------------------
 ## [v0.0.26](https://github.com/pbv-public/insights/releases/tag/v0.0.26) on 2025-May-17
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.25...v0.0.26?expand=1)
 > * Version Checksums: Functional=7eb56e3b1df0f99ed717edcc6cc6a7a2 Full=9096be46e17cf16b981bd2f54497a34a

@@ -12,7 +12,7 @@
       "description": "Grouping for detected errors resulting from this shot. Omitted if there are no discernible errors.",
       "properties": {
         "dead_dink": {
-          "description": "Set as `exploited` if we detect a definite dead dink that was exploited, otherwise omitted (we do not currently detect potential dead dinks). To be considered a dead dink, the shot_type must be a dink or drop and the opponent's return shot must be a groundstroke that is hit above the net height.",
+          "description": "Set as `exploited` if we detect a definite dead dink that was exploited, otherwise omitted (we do not currently detect potential dead dinks). To be considered a dead dink, the shot_type must be a dink or drop and the opponent's return shot must be a groundstroke that is hit above the net height. Status: not supported, not planned",
           "enum": [
             "exploited",
             "potential"
