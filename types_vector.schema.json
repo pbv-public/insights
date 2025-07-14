@@ -1,0 +1,22 @@
+{
+  "$id": "/types/vector",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "2D vector with x and y components, used to represent directional movement or displacement.",
+  "properties": {
+    "x": {
+      "description": "X component of the vector (movement parallel to the net)",
+      "type": "number"
+    },
+    "y": {
+      "description": "Y component of the vector (ground movement perpendicular to the net)",
+      "type": "number"
+    }
+  },
+  "required": [
+    "x",
+    "y"
+  ],
+  "title": "Vector",
+  "type": "object"
+}

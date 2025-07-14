@@ -1,5 +1,16 @@
 # Insights Schema Changelog
 
+## [v0.0.28](https://github.com/pbv-public/insights/releases/tag/v0.0.28) on 2025-Jul-14
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.27...v0.0.28?expand=1)
+> * Version Checksums: Functional=6ac23651ef1a88f71d8695d1a4cdbc34 Full=be0bac0a6d4c0b916265dc47207fa695
+
+- Replaced `ms_to_kitchen` with `kitchen_arrivals` array containing detailed kitchen line periods with `since_ms`, `until_ms`, and `ft_moved` vector data
+- Added `team_stats` array to rallies with `average_ft_between_players_along_x` and `x_distance_optimality` metrics for doubles games
+- Added `shooter_movement_from_last_shot` vector to track player movement between shots, using the new 2d `vector` type
+- Added `player_positions` array with x/y coordinates for all players at shot timestamp
+- Docs updates: dead_dink is "not supported, not planned", for the `kitchen_arrival` we specify that we consider only "rallies with at least 3 shots"
+
+-------------------------------------
 ## [v0.0.27](https://github.com/pbv-public/insights/releases/tag/v0.0.27) on 2025-Jun-02
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.26...v0.0.27?expand=1)
 > * Version Checksums: Functional=d4c0ff2080d78309f29dddb1ceb9b438 Full=45c2392114d7552766f960577df50dd0

@@ -117,6 +117,37 @@
       "description": "The ID of the player who hit the ball.",
       "title": "Player ID"
     },
+    "player_positions": {
+      "description": "Player positions for all players at the time of the shot. Array of 4 elements, one for each player . Second player of each team is null for a singles game",
+      "items": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "description": "The x coordinate of the player position.",
+                "type": "number"
+              },
+              "y": {
+                "description": "The y coordinate of the player position.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    },
     "quality": {
       "additionalProperties": false,
       "description": "an evaluation of the quality of the shot",
@@ -321,6 +352,11 @@
       ],
       "title": "Resulting Ball Movement",
       "type": "object"
+    },
+    "shooter_movement_from_last_shot": {
+      "$ref": "/types/vector",
+      "description": "Movement vector in feet that the shooter moved from their position during the previous shot, tracking x and y directions separately. Omitted for the first shot of the rally.",
+      "title": "Vector"
     },
     "shot_type": {
       "description": "- smash: an overhead or similar shot where the ball goes from high to low (no upward motion)\n- lob: a shot with a relatively high peak\n- dink: a shot that would land in or near the kitchen and which was hit from near the kitchen\n- drop: a shot that would land in or near the kitchen and was hit from the transition zone or deeper\n- drive: a shot that would land deep if not stopped by an opponent's paddle, opponent's body, or the net (and doesn't fall into an earlier categorization)\n- atp: an around-the-post shot, where the ball is hit outside the sideline and around the net post instead of over the net\n- erne: a shot hit from outside the sideline by the kitchen (based on when the player's feet first touch after a volley)\n- tweener: a shot where the ball is hit as it passes through the hitter's own legs\n\nOmitted if we can't confidently determine a shot type based on the ball's trajectory and other characteristics.",
