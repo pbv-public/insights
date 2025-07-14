@@ -140,9 +140,33 @@
                 {
                   "additionalProperties": false,
                   "properties": {
-                    "ms_to_kitchen": {
-                      "description": "How long it took this player to reach the kitchen in milliseconds. Omitted if they did not make it to the kitchen.",
-                      "type": "integer"
+                    "kitchen_arrivals": {
+                      "description": "List of periods when the player was positioned at the kitchen line",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "A period within the rally when this player was positioned at the kitchen",
+                        "properties": {
+                          "ft_moved": {
+                            "$ref": "/types/vector",
+                            "description": "Total denoised displacement movement vector in feet that this player moved during this kitchen line period, tracking x and y directions separately.",
+                            "title": "Vector"
+                          },
+                          "since_ms": {
+                            "description": "Millisecond timestamp (from the beginning of the rally) when the player first arrived at the kitchen line",
+                            "type": "integer"
+                          },
+                          "until_ms": {
+                            "description": "Millisecond timestamp (from the beginning of the rally) when the player was pushed back from the kitchen line",
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "since_ms"
+                        ],
+                        "title": "Kitchen Line Period",
+                        "type": "object"
+                      },
+                      "type": "array"
                     },
                     "started_on_left_side": {
                       "description": "`true` if this player started on the left side",
@@ -206,6 +230,26 @@
             "description": "The start time of the rally (milliseconds).",
             "title": "Video Milliseconds"
           },
+          "team_stats": {
+            "description": "Team-level statistics for the rally (omitted for singles).",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "average_ft_between_players_along_x": {
+                  "description": "Average distance in feet between team players during the rally.",
+                  "type": "number"
+                },
+                "x_distance_optimality": {
+                  "description": "0-1 score of the consistency of the team's maintenance of the optimal x-direction distance between players (we consider 7-10 ft as optimal, and we give lower score for 5-7 or 10-12 ft. Everything below or above that is a 0).",
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "type": "array"
+          },
           "winning_team": {
             "description": "Which team won the rally (team 0 or 1)",
             "maximum": 1,
@@ -238,7 +282,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "3.0.0",
+      "const": "3.2.0",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }

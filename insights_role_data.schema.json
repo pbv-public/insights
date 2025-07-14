@@ -14,7 +14,7 @@
           "properties": {
             "kitchen_arrival": {
               "$ref": "/types/count",
-              "description": "number of times the player arrived at the kitchen",
+              "description": "number of times the player arrived near the kitchen line (for rallies with at least 3 shots)",
               "title": "Count"
             },
             "total": {
@@ -36,7 +36,7 @@
           "properties": {
             "kitchen_arrival": {
               "$ref": "/types/count",
-              "description": "number of times the player arrived at the kitchen",
+              "description": "number of times the player arrived near the kitchen line (for rallies with at least 3 shots)",
               "title": "Count"
             },
             "total": {
@@ -70,7 +70,7 @@
           "properties": {
             "kitchen_arrival": {
               "$ref": "/types/count",
-              "description": "number of times the player arrived at the kitchen",
+              "description": "number of times the player arrived near the kitchen line (for rallies with at least 3 shots)",
               "title": "Count"
             },
             "total": {
@@ -92,7 +92,7 @@
           "properties": {
             "kitchen_arrival": {
               "$ref": "/types/count",
-              "description": "number of times the player arrived at the kitchen",
+              "description": "number of times the player arrived near the kitchen line (for rallies with at least 3 shots)",
               "title": "Count"
             },
             "total": {
