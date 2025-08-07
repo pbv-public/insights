@@ -19,7 +19,7 @@
             },
             "total": {
               "$ref": "/types/count",
-              "description": "total number of rallies counted in this category",
+              "description": "total number of rallies counted with player in this role and at least 3 shots",
               "title": "Count"
             }
           },
@@ -41,7 +41,7 @@
             },
             "total": {
               "$ref": "/types/count",
-              "description": "total number of rallies counted in this category",
+              "description": "total number of rallies counted with player in this role and at least 3 shots",
               "title": "Count"
             }
           },
@@ -70,12 +70,12 @@
           "properties": {
             "kitchen_arrival": {
               "$ref": "/types/count",
-              "description": "number of times the player arrived near the kitchen line (for rallies with at least 3 shots)",
+              "description": "number of times the player arrived near the kitchen line (for rallies with at least 4 shots)",
               "title": "Count"
             },
             "total": {
               "$ref": "/types/count",
-              "description": "total number of rallies counted in this category",
+              "description": "total number of rallies counted with player in this role and at least 4 shots",
               "title": "Count"
             }
           },
@@ -92,12 +92,12 @@
           "properties": {
             "kitchen_arrival": {
               "$ref": "/types/count",
-              "description": "number of times the player arrived near the kitchen line (for rallies with at least 3 shots)",
+              "description": "number of times the player arrived near the kitchen line (for rallies with at least 4 shots)",
               "title": "Count"
             },
             "total": {
               "$ref": "/types/count",
-              "description": "total number of rallies counted in this category",
+              "description": "total number of rallies counted with player in this role and at least 4 shots",
               "title": "Count"
             }
           },

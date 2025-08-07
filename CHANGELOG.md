@@ -1,5 +1,15 @@
 # Insights Schema Changelog
 
+## [v0.0.29](https://github.com/pbv-public/insights/releases/tag/v0.0.29) on 2025-Aug-07
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.28...v0.0.29?expand=1)
+> * Version Checksums: Functional=df12e7f526fcf8958c541b16aa3d18f6 Full=2369c3227e7d5d60a2f44e01f05c6306
+
+- Multi-session videos support
+- Most important change is in the URL structure, now it contains the session ID: instead of /{video_id}/stats.json it is now /{video_id}/{session_id}/stats.json, where session_id is 0-based index of the session in the video. Client can iterate through sessions using the session_id until it gets 404 Not Found.
+
+- `avatar_id` field is added to player_data, and it uses in the player avatar URL: /{video_id}/{ai_engine_url}/player{avatar_id}-[1-4].jpg are the four avatars for this player
+
+-------------------------------------
 ## [v0.0.28](https://github.com/pbv-public/insights/releases/tag/v0.0.28) on 2025-Jul-14
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.27...v0.0.28?expand=1)
 > * Version Checksums: Functional=6ac23651ef1a88f71d8695d1a4cdbc34 Full=be0bac0a6d4c0b916265dc47207fa695

@@ -4,6 +4,10 @@
   "additionalProperties": false,
   "description": "Contains player-specific data over the whole game for the web app.",
   "properties": {
+    "avatar_id": {
+      "description": "The avatar ID for this player.",
+      "type": "integer"
+    },
     "court_coverage": {
       "$ref": "/insights/court_coverage",
       "description": "Categorizes stats about a players court coverage across all rallies.",
@@ -38,9 +42,338 @@
       "$ref": "/types/percentage",
       "description": "The percentage of total team shots taken by the player.",
       "title": "Percentage"
+    },
+    "trends": {
+      "additionalProperties": false,
+      "description": "Summary of a player's stats from one game",
+      "properties": {
+        "flags": {
+          "additionalProperties": false,
+          "description": "Boolean information about the game",
+          "properties": {
+            "won_game": {
+              "description": "Whether the player won the game",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "won_game"
+          ],
+          "type": "object"
+        },
+        "kitchen_arrivals": {
+          "additionalProperties": false,
+          "properties": {
+            "receiving_side": {
+              "description": "Percent of rallies the player makes it to the kitchen when on the serving side",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "serving_side": {
+              "description": "Percent of rallies the player makes it to the kitchen when on the receiving side",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "receiving_side",
+            "serving_side"
+          ],
+          "type": "object"
+        },
+        "num_rallies": {
+          "description": "How many rallies were in the game",
+          "maximum": 255,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "num_rallies_won": {
+          "description": "How many rallies were won",
+          "maximum": 255,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "ratings": {
+          "additionalProperties": false,
+          "description": "A rating of the player's skill in various categories based on this one game",
+          "properties": {
+            "agility": {
+              "description": "How efficiently and effectively the player moved",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "consistency": {
+              "description": "How well the player avoids unforced errors",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "defense": {
+              "description": "Ability to neutralize attacks",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "offense": {
+              "description": "Ability to apply pressure",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "return": {
+              "description": "Return of serve ability",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "serve": {
+              "description": "Serve ability",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "serve",
+            "return",
+            "offense",
+            "defense",
+            "agility",
+            "consistency"
+          ],
+          "type": "object"
+        },
+        "return_depth": {
+          "additionalProperties": false,
+          "description": "Proportions of various depths",
+          "properties": {
+            "deep": {
+              "description": "Percent of deep serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "medium": {
+              "description": "Percent of medium serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "net": {
+              "description": "Percent of too net serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "out": {
+              "description": "Percent of too long, short or wide serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "shallow": {
+              "description": "Percent of shallow (but in) serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "out",
+            "net",
+            "shallow",
+            "medium",
+            "deep"
+          ],
+          "type": "object"
+        },
+        "serve_depth": {
+          "additionalProperties": false,
+          "description": "Proportions of various depths",
+          "properties": {
+            "deep": {
+              "description": "Percent of deep serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "medium": {
+              "description": "Percent of medium serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "net": {
+              "description": "Percent of too net serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "out": {
+              "description": "Percent of too long, short or wide serves (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "shallow": {
+              "description": "Percent of shallow (but in) serves",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "out",
+            "net",
+            "shallow",
+            "medium",
+            "deep"
+          ],
+          "type": "object"
+        },
+        "serve_speed": {
+          "description": "17 buckets for % of serves at speeds of <17.5mph (bucket index 0), [17.5-20.0), .., [52.5-55), >=55mph (bucket index 16)",
+          "items": {
+            "description": "a percentage expressed as a number between 0 and 1",
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "maxItems": 17,
+          "minItems": 17,
+          "type": "array"
+        },
+        "shot_accuracy": {
+          "additionalProperties": false,
+          "properties": {
+            "in": {
+              "description": "Percent of shots that went in",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "net": {
+              "description": "Percent of shots that were stopped by the net (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "out": {
+              "description": "Percent of shots that were out (fault)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "in",
+            "net",
+            "out"
+          ],
+          "type": "object"
+        },
+        "shot_quality": {
+          "additionalProperties": false,
+          "properties": {
+            "average": {
+              "description": "Percent of shots that were quality 0.4 (inclusive) to 0.6 (exclusive)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "excellent": {
+              "description": "Percent of shots that were quality 0.8 or higher",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "fair": {
+              "description": "Percent of shots that were quality 0.2 (inclusive) to 0.4 (exclusive)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "good": {
+              "description": "Percent of shots that were quality 0.6 (inclusive) to 0.8 (exclusive)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "poor": {
+              "description": "Percent of shots that were quality less than 0.2",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "excellent",
+            "good",
+            "average",
+            "fair",
+            "poor"
+          ],
+          "type": "object"
+        },
+        "shot_selection": {
+          "additionalProperties": false,
+          "description": "serves and returns are excluded, as are any shots which don't fall in any of the categories here",
+          "properties": {
+            "dink": {
+              "description": "Percent of shots that were dinks",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "drive": {
+              "description": "Percent of shots that were drives",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "drop": {
+              "description": "Percent of shots that were drops",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "reset": {
+              "description": "Percent of shots that were resets",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "drive",
+            "dink",
+            "reset",
+            "drop"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "serve_depth",
+        "return_depth",
+        "serve_speed",
+        "kitchen_arrivals",
+        "shot_quality",
+        "shot_selection",
+        "shot_accuracy",
+        "flags",
+        "num_rallies",
+        "num_rallies_won",
+        "ratings"
+      ],
+      "type": "object"
     }
   },
   "required": [
+    "avatar_id",
     "team",
     "shot_count",
     "total_team_shot_percentage",

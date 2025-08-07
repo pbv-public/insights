@@ -21,6 +21,15 @@
                   "additionalProperties": false,
                   "description": "Particular advice",
                   "properties": {
+                    "ci": {
+                      "description": "The confidence interval ([low, high]) of the value.",
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
                     "kind": {
                       "description": "The statistic in question.",
                       "enum": [
@@ -41,18 +50,11 @@
                       "description": "The method used to compute the CI for the statistic's rank.",
                       "enum": [
                         "wilson",
-                        "ranked_avg"
+                        "avg_rank",
+                        "avg",
+                        "scalar"
                       ],
                       "type": "string"
-                    },
-                    "rank_ci": {
-                      "description": "The confidence interval ([low, high]) of the percentile rank of the player in the distribution of games for this statistic.(\"We're fairly confident that this particular game exhibited a skill at least as good / at least as bad as this % of other games\").  This is useful for plotting/comparison purposes.  Note that the CI width significantly changes with the amount of data available for this particular stat.",
-                      "items": {
-                        "type": "number"
-                      },
-                      "maxItems": 2,
-                      "minItems": 2,
-                      "type": "array"
                     },
                     "relevance": {
                       "description": "Relevance score indicating how \"interesting\" this advice is (how much of a bad outlier is this particular stat). Higher is better. Calculated from the upper bound of CI, and then slightly weighted (with various weights for different stats) to make the typical advice more interesting.",
@@ -67,7 +69,7 @@
                     "relevance",
                     "kind",
                     "value",
-                    "rank_ci",
+                    "ci",
                     "method"
                   ],
                   "title": "Advice",
@@ -275,14 +277,9 @@
       "description": "Defines aspects of the session or game being played.",
       "title": "Session"
     },
-    "trends": {
-      "$ref": "/trends",
-      "description": "Contains player-specific trends data for this video.",
-      "title": "Trends"
-    },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.28",
+      "const": "0.0.29",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }

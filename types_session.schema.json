@@ -10,17 +10,27 @@
       "minimum": 1,
       "type": "integer"
     },
+    "session_index": {
+      "description": "Index of this session within the play session (starts at 0)",
+      "type": "integer"
+    },
     "session_type": {
       "description": "The type of session being played",
       "enum": [
         "game",
         "drill"
       ]
+    },
+    "vid": {
+      "description": "Video identifier",
+      "type": "string"
     }
   },
   "required": [
     "session_type",
-    "num_players"
+    "num_players",
+    "vid",
+    "session_index"
   ],
   "title": "Session",
   "type": "object"
