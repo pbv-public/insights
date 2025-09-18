@@ -84,6 +84,10 @@
             "exploited",
             "potential"
           ]
+        },
+        "unforced": {
+          "description": "A fault is counted as unforced if:  - The player misses a serve.  - The player misses a return or a third shot, unless the opponent’s previous shot was clearly very high-quality.  - Later in the rally, the player faults against a dink or drop that produced an easy ball:  - If the player volleys that dink/drop, it is unforced.  - If the player lets it bounce, it is unforced only if the ball was inside the player’s easy reach zone (“bubble”).  A fault is not unforced if:  - The opponent hit a strong putaway.  - On a volley, the previous shot was not a dink or drop.  - For non-volleys, the ball was outside the player’s easy reach zone.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -98,6 +102,10 @@
     },
     "is_poach": {
       "description": "Whether this ball was hit closer to the non-hitter's position than the hitter's position along the width of the court, and in front of the non-hitter.\n\nThe players' positions are measured at the time the previous shot was hit,\nand the ball's position is determined at the time the ball was hit by the receiving team.\n\nA poach is only possible if the ball is hit in front of the player the ball was poached from (their teammate).\n\nIf the ball goes past the non-hitter and their partner hits it, it is not considered a poach,\nregardless of the x-axis differential between the players and the ball.\n\nOmitted if unknown.",
+      "type": "boolean"
+    },
+    "is_putaway": {
+      "description": "Whether this shot was a putaway, that is, an attacking, powerful and accurate hit with the intention to directly end the rally.",
       "type": "boolean"
     },
     "is_reset": {

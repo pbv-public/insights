@@ -97,7 +97,7 @@
         },
         "ratings": {
           "additionalProperties": false,
-          "description": "A rating of the player's skill in various categories based on this one game",
+          "description": "A rating of the player's skill in various categories based on this one game. These ratings can be converted to a DUPR-like scale using the formula `2 + 6 * percentage` (i.e., the percentage [0,1] maps to the range [2,8]).",
           "properties": {
             "agility": {
               "description": "How efficiently and effectively the player moved",
@@ -123,6 +123,12 @@
               "minimum": 0,
               "type": "number"
             },
+            "overall": {
+              "description": "overall ability",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
             "return": {
               "description": "Return of serve ability",
               "maximum": 1,
@@ -137,6 +143,7 @@
             }
           },
           "required": [
+            "overall",
             "serve",
             "return",
             "offense",
