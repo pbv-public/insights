@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v4.1.0](https://github.com/pbv-public/insights/releases/tag/v4.1.0) on 2025-Sep-18
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v4.0.0...v4.1.0?expand=1)
+> * Version Checksums: Functional=3d2ab529f4c4298df9772505d49928e5 Full=dc4c21fc37f366c9fa668b1bfbe11d29
+
+- Unforced errors and putaways are supported now
+
+-------------------------------------
 ## [v4.0.0](https://github.com/pbv-public/insights/releases/tag/v4.0.0) on 2025-Aug-07
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v3.2.0...v4.0.0?expand=1)
 > * Version Checksums: Functional=df12e7f526fcf8958c541b16aa3d18f6 Full=2369c3227e7d5d60a2f44e01f05c6306
