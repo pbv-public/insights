@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v4.4.0](https://github.com/pbv-public/insights/releases/tag/v4.4.0) on 2025-Nov-12
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v4.1.0...v4.4.0?expand=1)
+> * Version Checksums: Functional=8696830ac25d67633b2f0def7501f1b1 Full=fbb8618415ddd96c1b24a9738fc65817
+
+- New structure, `kitchen_arrival_percentage`, with a new, improved algorithm for calculating the percentage of fair-chance kitchen arrivals.
+
+-------------------------------------
 ## [v4.1.0](https://github.com/pbv-public/insights/releases/tag/v4.1.0) on 2025-Sep-18
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v4.0.0...v4.1.0?expand=1)
 > * Version Checksums: Functional=3d2ab529f4c4298df9772505d49928e5 Full=dc4c21fc37f366c9fa668b1bfbe11d29
