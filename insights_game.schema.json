@@ -142,6 +142,10 @@
                 {
                   "additionalProperties": false,
                   "properties": {
+                    "had_arrival_opportunity": {
+                      "description": "`true` if this player had a fair opportunity to arrive at the kitchen in this rally",
+                      "type": "boolean"
+                    },
                     "kitchen_arrivals": {
                       "description": "List of periods when the player was positioned at the kitchen line",
                       "items": {
@@ -176,7 +180,8 @@
                     }
                   },
                   "required": [
-                    "started_on_left_side"
+                    "started_on_left_side",
+                    "had_arrival_opportunity"
                   ],
                   "type": "object"
                 }
@@ -241,6 +246,14 @@
                   "description": "Average distance in feet between team players during the rally.",
                   "type": "number"
                 },
+                "side_switches_ms": {
+                  "description": "Moments (ms in the video) where team switched their relative X position (left/right) for at least a second.",
+                  "items": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
                 "x_distance_optimality": {
                   "description": "0-1 score of the consistency of the team's maintenance of the optimal x-direction distance between players (we consider 7-10 ft as optimal, and we give lower score for 5-7 or 10-12 ft. Everything below or above that is a 0).",
                   "type": "number"
@@ -279,7 +292,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.30",
+      "const": "0.0.31",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }

@@ -400,6 +400,31 @@
       ],
       "type": "string"
     },
+    "tags": {
+      "additionalProperties": false,
+      "description": "Tags for shot features with nested paths using colon separators (e.g., \"type:dink\", \"type:dink:push\"). Each tag has optional confidence and quality scores.",
+      "patternProperties": {
+        "^.*$": {
+          "additionalProperties": false,
+          "properties": {
+            "conf": {
+              "description": "Our confidence score for the tag",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "quality": {
+              "description": "Quality evaluation (how good this aspect of the shot is)",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "vertical_type": {
       "description": "Whether the shot was hit as a dig, overhead, or neutral. Omitted if unknown.",
       "enum": [
@@ -423,7 +448,8 @@
     "quality",
     "start_ms",
     "end_ms",
-    "is_final"
+    "is_final",
+    "tags"
   ],
   "title": "Shot",
   "type": "object"
