@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.32](https://github.com/pbv-public/insights/releases/tag/v0.0.32) on 2025-Dec-22
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.31...v0.0.32?expand=1)
+> * Version Checksums: Functional=6e6b723125715c123c1233e0f2f8dfb9 Full=93b8b3e118089b4e26a5457af22666f2
+
+- New field, `advantage_scale`, with a positional 0-1 advantage score for each of the players at the time of the shot.
+
+-------------------------------------
 ## [v0.0.31](https://github.com/pbv-public/insights/releases/tag/v0.0.31) on 2025-Nov-12
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.30...v0.0.31?expand=1)
 > * Version Checksums: Functional=8696830ac25d67633b2f0def7501f1b1 Full=fbb8618415ddd96c1b24a9738fc65817

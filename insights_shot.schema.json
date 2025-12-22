@@ -3,6 +3,24 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
+    "advantage_scale": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "description": "Positional advantage score for each of the players at the time of the shot, based on their vertical (y-axis) court position. Each player's score is in the range [0, 1]:  - 0: player is at or behind the baseline (most disadvantaged position) - 1: player is at the kitchen/NVZ line or closer to the net (most advantaged position)",
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          }
+        ]
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    },
     "end_ms": {
       "description": "The time in milliseconds since the start of the video when the shot ended.",
       "type": "integer"
