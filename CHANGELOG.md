@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v0.0.34](https://github.com/pbv-public/insights/releases/tag/v0.0.34) on 2026-Jan-08
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.33...v0.0.34?expand=1)
+> * Version Checksums: Functional=291a709535e29f5ced31fed3efc094b9 Full=5ebf77610575d74ee5f39e5b79f14887
+
+- Added `stats` object for the general technical stats about each player
+
+-------------------------------------
 ## [v0.0.33](https://github.com/pbv-public/insights/releases/tag/v0.0.33) on 2025-Dec-22
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.32...v0.0.33?expand=1)
 > * Version Checksums: Functional=b497cf9cf744adb6f90b1fd615775a66 Full=cbb7bc1d480b843236c834c1fd6ed53e

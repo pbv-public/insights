@@ -489,6 +489,13 @@
         "ratings"
       ],
       "type": "object"
+    },
+    "trends_missing_reasons": {
+      "description": "Reasons explaining why trends data is missing for this player. Present only when `trends` is omitted.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     }
   },
   "required": [

@@ -74,6 +74,30 @@
         25
       ]
     },
+    "relative_adjustments": {
+      "additionalProperties": false,
+      "description": "Outputs from the relative DUPr adjustment models. These numbers expose how strongly the ML models nudged ratings between the two teams (Stage 2) and between partners on each team (Stage 3).",
+      "properties": {
+        "between_teams": {
+          "description": "Team-differential correction based on comparative performance of the teams. Each player on the higher-ranked team receives +between_teams/4, while the opponents get -between_teams/4. Positive values indicate the model boosted the predicted winners, negative values indicate a penalty.",
+          "type": "number"
+        },
+        "within_teams": {
+          "description": "Partner-differential corrections. Index 0 is the within-team adjustment applied between players 0 and 1, index 1 is applied between players 2 and 3.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        }
+      },
+      "required": [
+        "between_teams",
+        "within_teams"
+      ],
+      "type": "object"
+    },
     "scoring": {
       "description": "The scoring system most likely used in the game.",
       "enum": [

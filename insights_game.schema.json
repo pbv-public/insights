@@ -290,9 +290,32 @@
       "description": "Defines aspects of the session or game being played.",
       "title": "Session"
     },
+    "stats": {
+      "additionalProperties": false,
+      "description": "All collected stats keyed by stat name. Each entry contains the metric value for every player.",
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "description": "Values for each player (indexed by player ID).",
+          "items": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.33",
+      "const": "0.0.34",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
@@ -304,7 +327,8 @@
     "highlights",
     "player_data",
     "rallies",
-    "coach_advice"
+    "coach_advice",
+    "stats"
   ],
   "title": "Insights",
   "type": "object"
