@@ -1,5 +1,12 @@
 # Insights Schema Changelog
 
+## [v4.8.0](https://github.com/pbv-public/insights/releases/tag/v4.8.0) on 2026-Feb-26
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v4.7.0...v4.8.0?expand=1)
+> * Version Checksums: Functional=a62a282983e7b0900417d95e91a48300 Full=830f8bef8a3080339817e6a9f0ab441b
+
+- Added `team_kitchen_arrival` to player data with team-level kitchen arrival stats (numerator/denominator counts for serving and returning roles, where both teammates had a fair opportunity to arrive at the kitchen)
+
+-------------------------------------
 ## [v4.7.0](https://github.com/pbv-public/insights/releases/tag/v4.7.0) on 2026-Jan-08
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v4.5.1...v4.7.0?expand=1)
 > * Version Checksums: Functional=291a709535e29f5ced31fed3efc094b9 Full=5ebf77610575d74ee5f39e5b79f14887

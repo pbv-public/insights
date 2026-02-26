@@ -150,6 +150,58 @@
       "minimum": 0,
       "type": "integer"
     },
+    "team_kitchen_arrival": {
+      "additionalProperties": false,
+      "description": "Counts of rallies where both teammates had a fair opportunity to arrive at the kitchen (denominator) and both successfully arrived (numerator), broken down by serving/returning roles. Both players on the same team share identical values.",
+      "properties": {
+        "returning": {
+          "additionalProperties": false,
+          "properties": {
+            "denominator": {
+              "$ref": "/types/count",
+              "description": "Number of rallies where both teammates had a fair opportunity to arrive at the kitchen when on the returning team (requires at least 3 non-fault shots).",
+              "title": "Count"
+            },
+            "numerator": {
+              "$ref": "/types/count",
+              "description": "Number of rallies where both teammates arrived at the kitchen when on the returning team (requires at least 3 non-fault shots and both players having a fair opportunity).",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "numerator",
+            "denominator"
+          ],
+          "type": "object"
+        },
+        "serving": {
+          "additionalProperties": false,
+          "properties": {
+            "denominator": {
+              "$ref": "/types/count",
+              "description": "Number of rallies where both teammates had a fair opportunity to arrive at the kitchen when on the serving team (requires at least 4 non-fault shots).",
+              "title": "Count"
+            },
+            "numerator": {
+              "$ref": "/types/count",
+              "description": "Number of rallies where both teammates arrived at the kitchen when on the serving team (requires at least 4 non-fault shots and both players having a fair opportunity).",
+              "title": "Count"
+            }
+          },
+          "required": [
+            "numerator",
+            "denominator"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "serving",
+        "returning"
+      ],
+      "title": "Team Kitchen Arrival Stats",
+      "type": "object"
+    },
     "total_team_shot_percentage": {
       "$ref": "/types/percentage",
       "description": "The percentage of total team shots taken by the player.",
@@ -506,6 +558,7 @@
     "left_side_percentage",
     "role_data",
     "kitchen_arrival_percentage",
+    "team_kitchen_arrival",
     "court_coverage"
   ],
   "title": "Player Data",
