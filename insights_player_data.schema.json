@@ -134,6 +134,25 @@
       "description": "The percentage of time when this player was to the left of their partner.",
       "title": "Percentage"
     },
+    "positional_performance": {
+      "additionalProperties": false,
+      "description": "Team-level positional performance metrics derived from the advantage-scale model. Omitted for singles or when too few supported rallies are available.",
+      "properties": {
+        "finishing_ability": {
+          "description": "Team-level Close in [0, 1]: how efficiently the player's team converted positional advantage into ending the rally, independent of rally outcomes. Both teammates share the same value; team 1's value is the complement of team 0's.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "forward_pressure": {
+          "description": "Team-level Push in [0, 1]: how actively the player's team drove each shot toward their positional advantage, independent of rally outcomes. Both teammates share the same value; team 1's value is the complement of team 0's.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "role_data": {
       "$ref": "/insights/role_data",
       "description": "data about this player in each serving and receiving role",

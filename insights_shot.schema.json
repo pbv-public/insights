@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "properties": {
     "advantage_scale": {
-      "description": "Positional advantage score for each of the players at the time of the shot, based on their vertical (y-axis) court position. Each player's score is in the range [0, 1]:  - 0: player is at or behind the baseline (most disadvantaged position) - 1: player is at the kitchen/NVZ line or closer to the net (most advantaged position)",
+      "description": "Positional advantage score in [0, 1] per player. The source depends on the game type:  - Doubles: derived from a state-value model that estimates rally win probability given four-player positions. Both teammates share the same score, opponent scores are the complement (1 - teammate score). At 0, p(win) is around 0.3, at 1 - around 0.7, well-calibrated but a function of positions only. Omitted when positions are outside the model's supported domain. - Singles: legacy y-axis depth heuristic preserved for ratings compatibility. The two unused player slots are null. The server's value is hardcoded to 0 on the serve.",
       "items": {
         "anyOf": [
           {
@@ -138,6 +138,11 @@
       "description": "Whether this shot was a volley hit out of the air or not. Omitted if unknown.",
       "type": "boolean"
     },
+    "partner_positioning_score": {
+      "$ref": "/types/quality_score",
+      "description": "Positioning quality score for the partner at this shot [0, 1], higher is better. Derived from the Stage 2 causal-frontier positioning model that estimates how well the partner is positioned relative to a strong-team baseline given the game context. Omitted for singles games, serves, returns, or when positions are outside the model's supported domain.",
+      "title": "Quality Score"
+    },
     "player_id": {
       "$ref": "/types/player_id",
       "description": "The ID of the player who hit the ball.",
@@ -186,6 +191,11 @@
         "overall": {
           "$ref": "/types/quality_score",
           "description": "the combination of the execution and selection qualities",
+          "title": "Quality Score"
+        },
+        "pressure": {
+          "$ref": "/types/quality_score",
+          "description": "positional pressure faced and imposed by this shot [0, 1], higher means more pressure demand. Omitted for singles, serves, returns, or when positioning data is unavailable.",
           "title": "Quality Score"
         },
         "selection": {
@@ -383,6 +393,11 @@
       "$ref": "/types/vector",
       "description": "Movement vector in feet that the shooter moved from their position during the previous shot, tracking x and y directions separately. Omitted for the first shot of the rally.",
       "title": "Vector"
+    },
+    "shooter_positioning_score": {
+      "$ref": "/types/quality_score",
+      "description": "Positioning quality score for the shooter at this shot [0, 1], higher is better. Derived from the Stage 2 causal-frontier positioning model that estimates how well the shooter is positioned relative to a strong-team baseline given the game context. Omitted for singles games, serves, returns, or when positions are outside the model's supported domain.",
+      "title": "Quality Score"
     },
     "shot_type": {
       "description": "- smash: an overhead or similar shot where the ball goes from high to low (no upward motion)\n- lob: a shot with a relatively high peak\n- dink: a shot that would land in or near the kitchen and which was hit from near the kitchen\n- drop: a shot that would land in or near the kitchen and was hit from the transition zone or deeper\n- drive: a shot that would land deep if not stopped by an opponent's paddle, opponent's body, or the net (and doesn't fall into an earlier categorization)\n- atp: an around-the-post shot, where the ball is hit outside the sideline and around the net post instead of over the net\n- erne: a shot hit from outside the sideline by the kitchen (based on when the player's feet first touch after a volley)\n- tweener: a shot where the ball is hit as it passes through the hitter's own legs\n\nOmitted if we can't confidently determine a shot type based on the ball's trajectory and other characteristics.",
