@@ -1,5 +1,16 @@
 # Insights Schema Changelog
 
+## [v0.0.36](https://github.com/pbv-public/insights/releases/tag/v0.0.36) on 2026-May-02
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.35...v0.0.36?expand=1)
+> * Version Checksums: Functional=8470e2fee482e4053e273bac018e34f2 Full=f8975644733147d2a9488889dd136335
+
+- Added `player_data.positional_performance` containing `forward_pressure` (team-level Push, [0, 1]) and `finishing_ability` (team-level Close, [0, 1]) — measures of how actively a team drove each shot toward a positional advantage and how efficiently they converted advantage into ending the rally, both independent of rally outcomes. Both teammates share the same value; team 1's value is the complement of team 0's. Omitted for singles or when too few supported rallies are available.
+- Added `shot.quality.pressure` ([0, 1]) — positional pressure faced and imposed by the shot. Omitted for singles, serves, returns, or when positioning data is unavailable.
+- Added `shot.shooter_positioning_score` and `shot.partner_positioning_score` ([0, 1]) — Stage 2 causal-frontier positioning quality scores at the moment of the shot. Omitted for singles, serves, returns, or when positions are outside the model's supported domain.
+- Updated `shot.advantage_scale` semantics. In doubles it is now derived from a state-value model that estimates rally win probability from four-player positions (well-calibrated; ~0.3 win-prob at 0, ~0.7 at 1; teammates share, opponents are the complement). For singles, the legacy y-axis depth heuristic is preserved for ratings compatibility (server's value hardcoded to 0 on the serve, unused player slots null). Doubles scores are omitted when positions are outside the model's supported domain.
+- Removed `scoring_info.likely_correct_score`. The field was obsoleted by the new FB-scoring confidence work and is no longer produced.
+
+-------------------------------------
 ## [v0.0.35](https://github.com/pbv-public/insights/releases/tag/v0.0.35) on 2026-Feb-26
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.34...v0.0.35?expand=1)
 > * Version Checksums: Functional=a62a282983e7b0900417d95e91a48300 Full=830f8bef8a3080339817e6a9f0ab441b

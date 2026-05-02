@@ -200,10 +200,6 @@
                 "description": "If true, this rally is likely bad and should be ignored while computing the ongoing score.",
                 "type": "boolean"
               },
-              "likely_correct_score": {
-                "description": "Our scoring algorithm has quite high confidence in the score of this rally. If you need an example of a rally with a specific winner, it's best to pick one of the rallies with `likely_correct_score` set to `true`.",
-                "type": "boolean"
-              },
               "running_score": {
                 "description": "The running score of the game during _this_ rally. The first element is the score of team 0, and the second element is the score of team 1.",
                 "items": {
@@ -315,7 +311,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "0.0.35",
+      "const": "0.0.36",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
