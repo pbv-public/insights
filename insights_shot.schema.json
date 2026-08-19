@@ -29,27 +29,12 @@
       "additionalProperties": false,
       "description": "Grouping for detected errors resulting from this shot. Omitted if there are no discernible errors.",
       "properties": {
-        "dead_dink": {
-          "description": "Set as `exploited` if we detect a definite dead dink that was exploited, otherwise omitted (we do not currently detect potential dead dinks). To be considered a dead dink, the shot_type must be a dink or drop and the opponent's return shot must be a groundstroke that is hit above the net height. Status: not supported, not planned",
-          "enum": [
-            "exploited",
-            "potential"
-          ]
-        },
         "faults": {
           "additionalProperties": false,
           "description": "A fault is a type of error that violates the rules of the game, thus ending the rally. This includes both actual and potential faults (that were saved by the opponent, or somehow overlooked and didn't end the rally). Omitted if none were detected. If this field is present but `is_final` is false, it means play continued despite the fault (i.e., either players overlooked a fault or the AI detected a potential fault that was not called).",
           "properties": {
-            "excess_bounce": {
-              "description": "`true` if the ball bounced more than once before being hit, `false` if the ball only bounced once, omitted if unknown.",
-              "type": "boolean"
-            },
-            "kitchen": {
-              "description": "`true` if player stepped in the kitchen while volleying, `false` if they did not, omitted if unknown.",
-              "type": "boolean"
-            },
             "net": {
-              "description": "`true` if the ball was stopped by the net, `false` if the ball did clear the net (even if it touched).",
+              "description": "Present and `true` if the ball was stopped by the net. Omitted if the ball cleared the net (even if it touched).",
               "type": "boolean"
             },
             "out": {
@@ -85,12 +70,8 @@
               ],
               "type": "object"
             },
-            "paddle_hit_net": {
-              "description": "`true` if paddle hit the net, `false` if the paddle did not hit the net, omitted if unknown.",
-              "type": "boolean"
-            },
             "short": {
-              "description": "`true` if the ball is hit by the player to land on the same court side, before the net, but not out. `false` if the ball didn't land on the same court side, omitted if unknown.",
+              "description": "Present and `true` if the ball is hit by the player to land on the same court side, before the net, but not out. Omitted otherwise.",
               "type": "boolean"
             }
           },
@@ -190,17 +171,12 @@
         },
         "overall": {
           "$ref": "/types/quality_score",
-          "description": "the combination of the execution and selection qualities",
+          "description": "the overall quality of the shot (currently derived from the execution quality)",
           "title": "Quality Score"
         },
         "pressure": {
           "$ref": "/types/quality_score",
           "description": "positional pressure faced and imposed by this shot [0, 1], higher means more pressure demand. Omitted for singles, serves, returns, or when positioning data is unavailable.",
-          "title": "Quality Score"
-        },
-        "selection": {
-          "$ref": "/types/quality_score",
-          "description": "how good of a choice it was to hit this shot",
           "title": "Quality Score"
         }
       },
@@ -274,31 +250,6 @@
           "description": "Speed of the ball in MPH.",
           "type": "number"
         },
-        "spin": {
-          "additionalProperties": false,
-          "description": "The spin of the ball after it was hit. Omitted if unknown.",
-          "properties": {
-            "dominant_class": {
-              "description": "The dominant spin class of the ball.",
-              "enum": [
-                "topspin",
-                "backspin",
-                "sidespin",
-                "minimal_spin"
-              ],
-              "type": "string"
-            },
-            "magnitude": {
-              "description": "The magnitude of the spin in RPM.",
-              "type": "number"
-            }
-          },
-          "required": [
-            "dominant_class",
-            "magnitude"
-          ],
-          "type": "object"
-        },
         "trajectory": {
           "additionalProperties": false,
           "description": "Describes the estimated flight path of a ball after it was hit by the player.\n\nThe ball essentially flies in a 2D projectile motion along a 2D plane. One dimension\nof this plane is aligned with the Z-axis. An estimation of its path through 3D space\ncan be reconstructed from its initial flight characteristics and start and end\npoints.",
@@ -355,9 +306,15 @@
                   "title": "Video Milliseconds"
                 },
                 "zone": {
-                  "$ref": "/events/zone",
                   "description": "Court zone that the ball was hit from",
-                  "title": "Zone"
+                  "enum": [
+                    "deep",
+                    "mid",
+                    "short",
+                    "kitchen"
+                  ],
+                  "title": "Court Zone",
+                  "type": "string"
                 }
               },
               "required": [
@@ -400,7 +357,7 @@
       "title": "Quality Score"
     },
     "shot_type": {
-      "description": "- smash: an overhead or similar shot where the ball goes from high to low (no upward motion)\n- lob: a shot with a relatively high peak\n- dink: a shot that would land in or near the kitchen and which was hit from near the kitchen\n- drop: a shot that would land in or near the kitchen and was hit from the transition zone or deeper\n- drive: a shot that would land deep if not stopped by an opponent's paddle, opponent's body, or the net (and doesn't fall into an earlier categorization)\n- atp: an around-the-post shot, where the ball is hit outside the sideline and around the net post instead of over the net\n- erne: a shot hit from outside the sideline by the kitchen (based on when the player's feet first touch after a volley)\n- tweener: a shot where the ball is hit as it passes through the hitter's own legs\n\nOmitted if we can't confidently determine a shot type based on the ball's trajectory and other characteristics.",
+      "description": "- smash: an overhead or similar shot where the ball goes from high to low (no upward motion)\n- lob: a shot with a relatively high peak\n- dink: a shot that would land in or near the kitchen and which was hit from near the kitchen\n- drop: a shot that would land in or near the kitchen and was hit from the transition zone or deeper\n- drive: a shot that would land deep if not stopped by an opponent's paddle, opponent's body, or the net (and doesn't fall into an earlier categorization)\n- atp: an around-the-post shot, where the ball is hit outside the sideline and around the net post instead of over the net\n- erne: a shot hit from outside the sideline by the kitchen (based on when the player's feet first touch after a volley)\n\nOmitted if we can't confidently determine a shot type based on the ball's trajectory and other characteristics.",
       "enum": [
         "smash",
         "lob",
@@ -408,8 +365,7 @@
         "drop",
         "drive",
         "atp",
-        "erne",
-        "tweener"
+        "erne"
       ],
       "type": "string"
     },

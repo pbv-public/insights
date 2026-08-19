@@ -1,5 +1,21 @@
 # Insights Schema Changelog
 
+## [v0.0.37](https://github.com/pbv-public/insights/releases/tag/v0.0.37) on 2026-Aug-19
+> * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.36...v0.0.37?expand=1)
+> * Version Checksums: Functional=b546633901ecb42e802e72d31f027e74 Full=696d20d8b2f29b7be57f38d4ceb140cf
+
+- **Breaking**: removed `player_data.is_ball_machine` (until the ball-machine substitution support lands).
+  - `session.num_players` description no longer refers to ball machines or `is_ball_machine`.
+  - **Breaking**: removed `shot.quality.selection` (shot-choice quality). `shot.quality.overall` is retained but is now derived solely from `shot.quality.execution`, and its description says so.
+  - **Breaking**: removed `tweener` from the `shot.shot_type` enum.
+  - **Breaking**: removed `shot.errors.dead_dink`.
+  - **Breaking**: removed `shot.errors.faults.paddle_hit_net`, `shot.errors.faults.kitchen`, and `shot.errors.faults.excess_bounce`, that we currently don't detect.
+  - **Breaking**: `shot.errors.faults.net` and `shot.errors.faults.short` are now present only when `true`; they are omitted rather than emitted as `false`. Consumers testing for an explicit `false` must instead test for absence.
+  - **Breaking**: removed `shot.resulting_ball_movement.spin` (and its `dominant_class` / `magnitude` fields).
+  - **Breaking**: `shot.resulting_ball_movement.trajectory.start.zone` now uses a narrower inline `Court Zone` enum (`deep`, `mid`, `short`, `kitchen`) instead of referencing `/events/zone`, since a shot always starts from a court zone and never from `net` or `out`. `trajectory.end.zone` still uses
+  the full `/events/zone` enum.
+
+-------------------------------------
 ## [v0.0.36](https://github.com/pbv-public/insights/releases/tag/v0.0.36) on 2026-May-02
 > * [Compare to Previous Version](https://github.com/pbv-public/insights/compare/v0.0.35...v0.0.36?expand=1)
 > * Version Checksums: Functional=8470e2fee482e4053e273bac018e34f2 Full=6098d50aa71e373cb2a6e05882806bf7

@@ -30,7 +30,7 @@
                       "then": {
                         "properties": {
                           "shot_type": {
-                            "description": "- smash: an overhead or similar shot where the ball goes from high to low (no upward motion)\n- lob: a shot with a relatively high peak\n- dink: a shot that would land in or near the kitchen and which was hit from near the kitchen\n- drop: a shot that would land in or near the kitchen and was hit from the transition zone or deeper\n- drive: a shot that would land deep if not stopped by an opponent's paddle, opponent's body, or the net (and doesn't fall into an earlier categorization)\n- atp: an around-the-post shot, where the ball is hit outside the sideline and around the net post instead of over the net\n- erne: a shot hit from outside the sideline by the kitchen (based on when the player's feet first touch after a volley)\n- tweener: a shot where the ball is hit as it passes through the hitter's own legs\n\nOmitted if we can't confidently determine a shot type based on the ball's trajectory and other characteristics.",
+                            "description": "- smash: an overhead or similar shot where the ball goes from high to low (no upward motion)\n- lob: a shot with a relatively high peak\n- dink: a shot that would land in or near the kitchen and which was hit from near the kitchen\n- drop: a shot that would land in or near the kitchen and was hit from the transition zone or deeper\n- drive: a shot that would land deep if not stopped by an opponent's paddle, opponent's body, or the net (and doesn't fall into an earlier categorization)\n- atp: an around-the-post shot, where the ball is hit outside the sideline and around the net post instead of over the net\n- erne: a shot hit from outside the sideline by the kitchen (based on when the player's feet first touch after a volley)\n\nOmitted if we can't confidently determine a shot type based on the ball's trajectory and other characteristics.",
                             "enum": [
                               "smash",
                               "lob",
@@ -38,8 +38,7 @@
                               "drop",
                               "drive",
                               "atp",
-                              "erne",
-                              "tweener"
+                              "erne"
                             ],
                             "type": "string"
                           }
