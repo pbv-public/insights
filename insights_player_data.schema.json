@@ -13,10 +13,6 @@
       "description": "Categorizes stats about a players court coverage across all rallies.",
       "title": "Court Coverage"
     },
-    "is_ball_machine": {
-      "description": "If present, a ball machine is substituting for this player. Omitted if this player is human.",
-      "type": "boolean"
-    },
     "kitchen_arrival_percentage": {
       "additionalProperties": false,
       "description": "Counts of fair kitchen-arrival opportunities (denominator) and successful arrivals (numerator), broken down by serving/returning roles for the player and their partner.",
@@ -279,62 +275,125 @@
           "type": "integer"
         },
         "ratings": {
-          "additionalProperties": false,
-          "description": "A rating of the player's skill in various categories based on this one game. These ratings can be converted to a DUPR-like scale using the formula `2 + 6 * percentage` (i.e., the percentage [0,1] maps to the range [2,8]).",
-          "properties": {
-            "agility": {
-              "description": "How efficiently and effectively the player moved",
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number"
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "description": "the version 1 rating categories",
+              "properties": {
+                "agility": {
+                  "description": "How efficiently and effectively the player moved",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "consistency": {
+                  "description": "How well the player avoids unforced errors",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "defense": {
+                  "description": "Ability to neutralize attacks",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "offense": {
+                  "description": "Ability to apply pressure",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "overall": {
+                  "description": "overall ability",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "return": {
+                  "description": "Return of serve ability",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "serve": {
+                  "description": "Serve ability",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "overall",
+                "serve",
+                "return",
+                "offense",
+                "defense",
+                "agility",
+                "consistency"
+              ],
+              "type": "object"
             },
-            "consistency": {
-              "description": "How well the player avoids unforced errors",
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number"
-            },
-            "defense": {
-              "description": "Ability to neutralize attacks",
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number"
-            },
-            "offense": {
-              "description": "Ability to apply pressure",
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number"
-            },
-            "overall": {
-              "description": "overall ability",
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number"
-            },
-            "return": {
-              "description": "Return of serve ability",
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number"
-            },
-            "serve": {
-              "description": "Serve ability",
-              "maximum": 1,
-              "minimum": 0,
-              "type": "number"
+            {
+              "additionalProperties": false,
+              "description": "the version 2 rating categories",
+              "properties": {
+                "ball_control": {
+                  "description": "How well the player controls the ball",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "court_iq": {
+                  "description": "Court awareness and decision-making",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "defense": {
+                  "description": "Ability to neutralize attacks",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "kitchen_game": {
+                  "description": "Ability in the non-volley zone (kitchen) game",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "offense": {
+                  "description": "Ability to apply pressure",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "overall": {
+                  "description": "overall ability",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "targeting": {
+                  "description": "How well the player places their shots",
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "overall",
+                "kitchen_game",
+                "ball_control",
+                "defense",
+                "offense",
+                "court_iq",
+                "targeting"
+              ],
+              "type": "object"
             }
-          },
-          "required": [
-            "overall",
-            "serve",
-            "return",
-            "offense",
-            "defense",
-            "agility",
-            "consistency"
           ],
-          "type": "object"
+          "description": "A rating of the player's skill in various categories based on this one game. Which categories are rated depends on the trend version (see RATING_CATEGORIES_BY_VERSION). These ratings can be converted to a DUPR-like scale using the formula `2 + 6 * percentage` (i.e., the percentage [0,1] maps to the range [2,8])."
         },
         "return_depth": {
           "additionalProperties": false,

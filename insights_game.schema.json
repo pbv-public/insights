@@ -311,7 +311,7 @@
     },
     "version": {
       "$ref": "/types/version",
-      "const": "4.10.0",
+      "const": "4.12.0",
       "description": "a version string matching x.x.x where x represents one or more digits",
       "title": "Version"
     }
